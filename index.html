@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- link: https://remixicon.com -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,50 +16,51 @@
 </head>
 
 <body>
-    <!-- Menu Navegacion -->
+    <!-- Menu Navegacion  -->
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
+            <a class="navbar-brand" href="#">
+                <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                Ecomerce
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30"
-                class="d-inline-block align-top" alt="">
-            Ecomerce
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active">Inicio</a>
+                    <a href="#" class="nav-item nav-link">Productos</a>
+                    <a href="#" class="nav-link">Categorias</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Categoria 1</a>
+                            <a href="#" class="dropdown-item">Categoria 2</a>
+                            <a href="#" class="dropdown-item">Categoria 3</a>
+                        </div>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+                </div>
+                <form class="form-inline flex-fill px-4">
+                    <div class="input-group w-100">
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </div>
+                </form>
+                <div class="navbar-nav">
+                    <a href="" class="nav-item nav-link">
+                        <i class="ri-shopping-cart-line ri-2x"></i>
+                    </a>
+                </div>
+                <div class="navbar-nav pl-1">
+                    <a href="#" class="nav-item nav-link pr-4">Iniciar Sesion</a>
+                </div>
 
+            </div>
+        </nav>
+    </div>
+    <br>
     <div class="container-fluid">
 
 
@@ -75,7 +79,7 @@
                     <button type="button" class="list-group-item list-group-item-action">Categoria 5</button>
                     <button type="button" class="list-group-item list-group-item-action">Categoria 6</button>
                 </div>
-                
+
             </div>
             <!-- Cards de productos en oferta -->
             <div class="card col-3" style="width: 18rem;">
@@ -153,6 +157,7 @@
 
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
