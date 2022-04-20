@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Icons -->
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <!-- Menu Navegacion  -->
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
@@ -42,79 +43,29 @@
                         <input class="form-control mr-sm-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                     </div>
-                </form>
-                <div class="navbar-nav">
-                    <a href="" class="nav-item nav-link">
-                        <i class="ri-shopping-cart-line ri-2x"></i>
-                    </a>
-                </div>
-                <div class="navbar-nav pl-1">
-                    <a href="#" class="nav-item nav-link pr-4">Iniciar Sesion</a>
-                </div>
-
-            </div>
-        </nav>
-    </div>
-    <br>
-    <div class="container-fluid">
-
-
-        <!-- Medios de pago -->
-
-        <!-- Categorias de productos -->
-        <br>
-        <div class="row ">
-            <div class="col-2 ">
-
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 1</button>
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 2</button>
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 3</button>
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 4</button>
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 5</button>
-                    <button type="button" class="list-group-item list-group-item-action">Categoria 6</button>
-                </div>
-
-            </div>
-            <!-- Cards de productos en oferta -->
-            <div class="card col-3" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
-
-            <div class="card col-3 " style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+            <form class="form-inline flex-fill px-4">
+                <div class="input-group w-100">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
+            </form>
+            <div class="navbar-nav">
+                <a href="" class="nav-item nav-link">
+                    <i class="ri-shopping-cart-line ri-2x"></i>
+                </a>
             </div>
+            <div class="navbar-nav pl-1">
+                <a href="#" class="nav-item nav-link pr-4">Iniciar Sesion</a>
+            </div>
+
         </div>
+    </nav>
+    <br>
+    <br>
+    <main class="container-fluid">
         <!-- Carrusel -->
-        <br>
         <div class="row justify-content-md-center">
             <div id="carouselExampleIndicators" class="carousel slide col-10 " data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -142,16 +93,67 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <br>
 
         </div>
 
-    </div>
-    <!-- Footer -->
+        <!-- Cards de productos en oferta modificada -->
+        <div class="card-deck m-5">
+            <!-- margen 5 -->
+
+            <!-- card numero 1 -->
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <!-- Card numero 2 -->
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+            <!-- Card numero 3-->
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
+
+        <!--TODO Medios de pago -->
+
+    </main>
+    <!--TODO Footer -->
+
+    <footer>
+
+    </footer>
 
 
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
 
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
