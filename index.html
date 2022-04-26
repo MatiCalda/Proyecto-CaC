@@ -19,7 +19,7 @@
 <body>
 
     <!-- Menu Navegacion  -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0 sticky-top">
         <a class="navbar-brand pl-2" href="/">
             <i class="ri-sword-line d-inline-block " alt="logo"></i>
             TecnoTienda
@@ -28,14 +28,42 @@
             <div class="navbar-nav">
                 <a href="/" class="nav-item nav-link active">Inicio</a>
                 <a href="pages/products.html" class="nav-item nav-link">Productos</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categorias</a>
-                    <div class="dropdown-menu">
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 1</a>
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 2</a>
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 3</a>
+                <a href="/" class="nav-item nav-link ">Caregorias</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu dropdown-menu" aria-labelledby="servicesDropdown">
+                        <div class="d-md-flex ">
+                            <div>
+                                <div class="dropdown-header">Categoria 1</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 2</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Professional Services</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 3</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                                <a class="dropdown-item" href="#">Subcategoria 4</a>
+                                <a class="dropdown-item" href="#">Subcategoria 5</a>
+                                <a class="dropdown-item" href="#">Subcategoria 6</a>
+                                <a class="dropdown-item" href="#">Subcategoria 7</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </li>
             </div>
             <form class="form-inline flex-fill px-4">
                 <div class="input-group w-100">
