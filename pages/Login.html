@@ -17,7 +17,33 @@
 </head>
 
 <body>
-
+    <main role="main" class="container my-auto pt-4">
+        <div class="row">
+            <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
+                <h2 class="text-center light">Bienvenido de nuevo</h2>
+                <img class="img-fluid mx-auto d-block rounded" src="../img/imagen.jpg"/>
+                <form>
+                    <div class="form-group pt-3">
+                        <label for="correo" class="light">Correo</label>
+                        <input id="correo" name="correo" class="form-control" type="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña" class="light">Contraseña</label>
+                        <input id="contraseña" name="contraseña" class="form-control" type="password" placeholder="Contraseña" required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-info mb-2 ">
+                            Login
+                        </button>
+                    </div>
+                    <br>
+                    <a href="Register.html">No tienes cuenta? Registrate aqui</a>
+                    <br>
+                    <a href="#">Contraseña olvidada</a>
+                </form>
+            </div>
+        </div>
+    </main>
 
 
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
