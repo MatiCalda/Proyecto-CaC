@@ -17,6 +17,50 @@
 </head>
 
 <body>
+    <!-- Menu Navegacion  -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
+        <a class="navbar-brand pl-2" href="../index.html">
+
+            <i class="ri-sword-line d-inline-block " alt="logo"></i>
+            TecnoTienda
+        </a>
+        <button class="navbar-toggler p-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="../index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="../pages/products.html" class="nav-item nav-link">Productos</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categorias</a>
+                    <div class="dropdown-menu">
+                        <a href="../pages/categories.html" class="dropdown-item">Categoria 1</a>
+                        <a href="../pages/categories.html" class="dropdown-item">Categoria 2</a>
+                        <a href="../pages/categories.html" class="dropdown-item">Categoria 3</a>
+                    </div>
+                </div>
+            </div>
+            <form class="form-inline flex-fill px-4">
+                <div class="input-group w-100">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Busqueda" aria-label="Busqueda">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </div>
+            </form>
+            <div class="navbar-nav">
+                <a href="../pages/cart.html" class="nav-item nav-link">
+                    <i class="ri-shopping-cart-line ri-2x"></i>
+                </a>
+            </div>
+            <!-- el siguiente div con un link se modificara por uno con un dropdown donde dira el alias, con las opciones de ir a:
+            Mi perfil y Cerrar Sesion
+            este dropdown aparecera cuando se verifiquen los datos en la base de datos -->
+            <div class="navbar-nav pl-1">
+                <a href="#a" class="nav-item nav-link pr-4" data-toggle="modal" data-target="#login">Iniciar Sesion</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Cierra Menu Navegacion  -->
     <div class="container">
         <div class="row">
             <div class="col p-3 light text-center">
