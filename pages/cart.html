@@ -207,9 +207,9 @@
     </div><!-- container -->
 
 
-    <!-- Modal -->
+    <!-- Modal Forma de Pago -->
     <div class="modal fade" id="formaDePago" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
@@ -225,10 +225,12 @@
                                 <i class="ri-paypal-line ri-1x mr-1"></i> Paypal </a> </li>
                         <li class="nav-item pill-info"> <a data-toggle="pill" href="#net-banking" class="nav-link ">
                                 <i class="ri-smartphone-line ri-1x mr-1"></i> Mercado Pago </a> </li>
+                                <li class="nav-item pill-info"> <a data-toggle="pill" href="#net-banking" class="nav-link ">
+                                    <i class="ri-smartphone-line ri-1x mr-1"></i> Todo Pago </a> </li>
                     </ul>
-                    <!-- Credit card form content -->
+                    <!-- Contenidos Forma de Pago -->
                     <div class="tab-content">
-                        <!-- credit card info-->
+                        <!-- Tarjeta Debito/Credito -->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
                             <form role="form" onsubmit="event.preventDefault()">
                                 <div class="form-group"> <label for="username">
@@ -245,7 +247,7 @@
                                             <span class="input-group-text text-muted">
                                                 <!-- <i class="ri-visa-fill ri-xl mx-1"></i> -->
                                                 <!-- <i class="ri-mastercard-line ri-xl mx-1"></i> -->
-
+                                                <!-- <i class="ri-bank-card-line ri-xl mx-1"></i> american express-->
                                                 <i class="fab fa-cc-visa mx-1"></i>
                                                 <i class="fab fa-cc-mastercard mx-1"></i>
                                             </span>
@@ -273,8 +275,8 @@
                                         class="subscribe btn btn-info btn-block shadow-sm"> Confirmar Pago </button>
                             </form>
                         </div>
-                    </div> <!-- End -->
-                    <!-- Paypal info -->
+                    </div> <!-- Cierre Tarjeta Debito/Credito -->
+                    <!-- Paypal -->
                     <div id="paypal" class="tab-pane fade pt-3">
                         <h6 class="pb-2">Selecciona tu tipo de cuenta paypal</h6>
                         <div class="form-group ">
@@ -293,7 +295,8 @@
                         <p class="text-muted"> Nota: Después de hacer clic en el botón, se le dirigirá a un
                             enlace seguro para el pago. Después de completar el proceso de pago, será redirigido
                             a el sitio web para ver los detalles de su pedido. </p>
-                    </div> <!-- End -->
+                    </div> <!-- Cierre Paypal -->
+                    <!-- MercadoPago / TodoPago -->
                     <div id="net-banking" class="tab-pane fade pt-3">
                         <div class="form-group "> <label for="Select Your Bank">
                                 <h6>Seleccione la cantidad de cuotas</h6>
@@ -312,7 +315,26 @@
                         <p class="text-muted">Nota: Después de hacer clic en el botón, se le dirigirá a un
                             enlace seguro para el pago. Después de completar el proceso de pago, será redirigido
                             a el sitio web para ver los detalles de su pedido. </p>
-                    </div> <!-- End -->
+                    </div> <!-- Cierre MercadoPago / TodoPago -->
+                    <div id="net-banking" class="tab-pane fade pt-3">
+                        <div class="form-group "> <label for="Select Your Bank">
+                                <h6>Seleccione la cantidad de cuotas</h6>
+                            </label> <select class="form-control" id="ccmonth">
+                                <option value="" selected disabled>--Por favor seleccione la cantidad de cuotas a pagar--</option>
+                                <option>Una cuota</option>
+                                <option>2 cuotas</option>
+                                <option>4 cuotas</option>
+                                <option>12 cuotas</option>
+                                <option>18 cuotas</option>
+                            </select> </div>
+                        <div class="form-group">
+                            <p> <button type="button" class="btn btn-info "><i class="ri-smartphone-line mr-2"></i>
+                                    Confirmar Pago</button> </p>
+                        </div>
+                        <p class="text-muted">Nota: Después de hacer clic en el botón, se le dirigirá a un
+                            enlace seguro para el pago. Después de completar el proceso de pago, será redirigido
+                            a el sitio web para ver los detalles de su pedido. </p>
+                    </div> <!-- Cierre MercadoPago / TodoPago -->
                 </div>
                 <div class="modal-footer">
                     <div class=" text-center">

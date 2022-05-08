@@ -18,39 +18,41 @@
 
 <body>
     <main role="main" class="container my-auto">
-        <h2 class="text-center light p-4">Registrate</h2>
-        <form>
+        <h2 class="text-center light p-4" id="titulo">Registrate</h2>
+        <form id="form">
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" d>
+                    <small class="warning" id="nombreWarning">&nbsp;</small>
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido" d>
+                    <small class="warning" id="apellidoWarning">&nbsp;</small>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
-                    <input type="text" class="form-control" id="alias" placeholder="Alias">
+                    <input type="text" class="form-control" id="alias" placeholder="Alias" d>
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control" id="codigoPostal" placeholder="Codigo Postal">
-                </div>
-            </div>
-            <div class="row py-2 justify-content-center">
-                <div class="col-5">
-                    <input type="email" class="form-control" id="contra1" placeholder="Correo electronico">
-                </div>
-                <div class="col-5">
-                    <input type="email" class="form-control" id="contra2" placeholder="Repita correo electronico">
+                    <input type="text" class="form-control" id="codigoPostal" placeholder="Codigo Postal" d>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                    <small class="light">Debe tener como mínimo 6 caracteres</small>
+                    <input type="email" class="form-control" id="email" placeholder="Correo electronico" d>
                 </div>
                 <div class="col-5">
-                    <input type="password" class="form-control" placeholder="Repita contraseña">
+                    <input type="email" class="form-control" id="verifEmail" placeholder="Repita correo electronico" >
+                </div>
+            </div>
+            <div class="row py-2 justify-content-center">
+                <div class="col-5">
+                    <input type="password" class="form-control" id="clave" placeholder="Contraseña" d>
+                    <small class="light" id="claveWarning">Debe tener como mínimo 6 caracteres</small>
+                </div>
+                <div class="col-5">
+                    <input type="password" class="form-control" id="verifClave" placeholder="Repita contraseña" d>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
@@ -65,7 +67,7 @@
     </main>
 
 
-
+    <script src="../js/verificarSignin.js"></script>
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
