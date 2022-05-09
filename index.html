@@ -21,9 +21,9 @@
 </head>
 
 <body>
-    
+
     <!-- Menu Navegacion  -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0 sticky-top">
         <a class="navbar-brand pl-2" href="/">
 
             <i class="ri-sword-line d-inline-block " alt="logo"></i>
@@ -38,11 +38,41 @@
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
                 <a href="pages/products.html" class="nav-item nav-link">Productos</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categorias</a>
-                    <div class="dropdown-menu">
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 1</a>
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 2</a>
-                        <a href="pages/categories.html" class="dropdown-item">Categoria 3</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Caregorias
+                    </a>
+                    <div class="dropdown-menu dropdown-menu" aria-labelledby="servicesDropdown">
+                        <div class="d-md-flex ">
+                            <div>
+                                <div class="dropdown-header">Categoria 1</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 2</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 3</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 4</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                                <a class="dropdown-item" href="#">Subcategoria 4</a>
+                                <a class="dropdown-item" href="#">Subcategoria 5</a>
+                                <a class="dropdown-item" href="#">Subcategoria 6</a>
+                                <a class="dropdown-item" href="#">Subcategoria 7</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,7 +149,8 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <div class="signup-section">Aun no tienes cuenta? <a href="pages/singin.html" class="text-info"> Registrar</a>.
+                    <div class="signup-section">Aun no tienes cuenta? <a href="pages/singin.html" class="text-info">
+                            Registrar</a>.
                     </div>
                 </div>
             </div>
@@ -215,7 +246,7 @@
     <footer>
         <div class="iconos text-right p-2">
             <img src="https://www.brooksfieldstore.com/modules/themeeditor/img/footer_logo_1.jpg">
-         </div>
+        </div>
         <footer class="text-center footer-style">
             <div class="container">
                 <div class="row">
@@ -230,9 +261,10 @@
                     <div class="col-md-4 footer-col">
                         <ul class="list-inline">
                             <li>
-                                <h6>Redes</h6> 
+                                <h6>Redes</h6>
                             </li>
                             <li>
+
                                 <a target="_blank" href="https://www.Twitter.com" class="btn-social btn-outline"><i class="bi-twitter ri-2x"></i></a>
                             </li>
                             <li>

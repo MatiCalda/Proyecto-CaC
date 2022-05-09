@@ -5,6 +5,8 @@
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- link: https://remixicon.com -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- https://icons.getbootstrap.com -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,39 +20,46 @@
 
 <body>
     <main role="main" class="container my-auto">
-        <h2 class="text-center light p-4">Registrate</h2>
-        <form>
+        <h2 class="text-center light p-4" id="titulo">Registrate</h2>
+        <form id="form">
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
                     <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                    <small class="warning" id="nombreWarning">&nbsp;</small>
                 </div>
                 <div class="col-5">
                     <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                    <small class="warning" id="apellidoWarning">&nbsp;</small>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
                     <input type="text" class="form-control" id="alias" placeholder="Alias">
+                    <small class="warning" id="aliasWarning">&nbsp;</small>
                 </div>
                 <div class="col-5">
                     <input type="text" class="form-control" id="codigoPostal" placeholder="Codigo Postal">
+                    <small class="warning" id="codigoPostalWarning">&nbsp;</small>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
-                    <input type="email" class="form-control" id="contra1" placeholder="Correo electronico">
+                    <input type="email" class="form-control" id="email" placeholder="Correo electronico">
+                    <small class="warning" id="emailWarning">&nbsp;</small>
                 </div>
                 <div class="col-5">
-                    <input type="email" class="form-control" id="contra2" placeholder="Repita correo electronico">
+                    <input type="email" class="form-control" id="verifEmail" placeholder="Repita correo electronico" >
+                    <small class="warning" id="verifEmailWarning">&nbsp;</small>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
                 <div class="col-5">
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                    <small class="light">Debe tener como mínimo 6 caracteres</small>
+                    <input type="password" class="form-control" id="clave" placeholder="Contraseña">
+                    <small class="light" id="claveWarning">Debe tener como mínimo 6 caracteres</small>
                 </div>
                 <div class="col-5">
-                    <input type="password" class="form-control" placeholder="Repita contraseña">
+                    <input type="password" class="form-control" id="verifClave" placeholder="Repita contraseña">
+                    <small class="warning" id="verifClaveWarning">&nbsp;</small>
                 </div>
             </div>
             <div class="row py-2 justify-content-center">
@@ -65,7 +74,7 @@
     </main>
 
 
-
+    <script src="../js/verificarSignin.js"></script>
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

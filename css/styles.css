@@ -42,6 +42,9 @@
   .light{
     color: antiquewhite;
   }
+  .warning{
+    color: red;
+  }
   
   
   /* not active */
@@ -68,15 +71,15 @@
 }
 
 
-.bi-twitter{
+.bi-twitter-color{
 
     color: #1DA1F2;
 }
 
-.bi-facebook{
+.bi-facebook-color{
     color: #4267B2;
 }
-.bi-instagram{
+.bi-instagram-color{
 
     color: #a34de9;
 }
