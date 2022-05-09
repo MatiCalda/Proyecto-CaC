@@ -7,7 +7,7 @@ function loadHTML() {
     */
 
     let html = '';
-    html += '    <br><br>'
+    html += '    <br><br><br><br>'
     html += '        <footer class="fixed-bottom text-center footer-style py-2">'
     html += '            <div class="container-fluid">'
     html += '                <div class="row align-items-center">'

@@ -88,114 +88,55 @@
         </div>
     </nav>
 
-    <div class="container pt-5 ">
+    
+
+    <div class="mx-5 p-5 ">
         <div class="row bg-light py-2">
-            <div class="col-1 ">
-                <label>
-                    <h5>Producto</h5>
-                </label>
-            </div>
-            <div class="col-7">
-                <label>
-                    <h5>Descripcion</h5>
-                </label>
-            </div>
-            <div class="col-1 text-center">
-                <label>
-                    <h5>Cantidad</h5>
-                </label>
-            </div>
-            <div class="col-1 text-center">
-                <label>
-                    <h5>Precio</h5>
-                </label>
-            </div>
-            <div class="col-1 text-center">
-                <label>
-                    <h5>Total</h5>
-                </label>
-            </div>
-            <div class="col-1">
+            <table class="table" id="lista-compra" >
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td>
+                            <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
+                        </td>
+                        <td class="align-middle">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat elit, posuere a aliquam in,
+                                mattis a erat. Vestibulum ligula.
+                        </td>
+                        <td class="align-middle">
+                            1
+                        </td>
+                        <td class="align-middle">
+                            $10.00
+                        </td>
+                        <td class="align-middle">
+                            $10.00
+                        </td>
+                        <td class="align-middle">
+                            <a class="ri-delete-bin-2-line text-decoration-none ri-lg"></a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <th colspan="4" scope="col" class="text-right">TOTAL :</th>
+                    <th scope="col">
+                        <!-- <input id="total" name="monto" class="font-weight-bold border-0" readonly style="background-color: white;"></input> -->
+                    </th>
+                    
+                </tr>
+            </table>
 
-
-            </div>
-        </div>
-        <div class="row bg-light py-2 ">
-            <div class="col-1 ">
-                <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
-            </div>
-            <div class="col-7">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat elit, posuere a aliquam in,
-                    mattis a erat. Vestibulum ligula.</p>
-            </div>
-            <div class="col-1 text-right">
-                1
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1">
-                <a class="ri-delete-bin-2-line text-decoration-none"></a>
-            </div>
         </div>
 
-        <div class="row bg-light py-2 ">
-            <div class="col-1 ">
-                <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
-            </div>
-            <div class="col-7">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat elit, posuere a aliquam in,
-                    mattis a erat. Vestibulum ligula.</p>
-            </div>
-            <div class="col-1 text-right">
-                1
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1">
-                <a class="ri-delete-bin-2-line text-decoration-none"></a>
-            </div>
-        </div>
-
-        <div class="row bg-light py-2 ">
-            <div class="col-1 ">
-                <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
-            </div>
-            <div class="col-7">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat elit, posuere a aliquam in,
-                    mattis a erat. Vestibulum ligula.</p>
-            </div>
-            <div class="col-1 text-right">
-                1
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1 text-right">
-                $10.00
-            </div>
-            <div class="col-1">
-                <!-- <button type="button" class="btn btn-danger pr-2">
-                    X
-                </button> -->
-                <a class="ri-delete-bin-2-line text-decoration-none"></a>
-            </div>
-        </div>
-        <div class="row bg-light justify-content-end py-2 ">
-            <div class="col-3 text-right">
-                <h4>Total</h4>
-            </div>
-            <div class="col-2 text-left">
-                <h4>$00.00</h4>
-            </div>
-        </div>
+       
 
         <div class="row justify-content-end py-2">
             <div class=" col-md-4">
@@ -211,7 +152,7 @@
     </div><!-- container -->
 
     <!--TODO Footer -->
-
+    
     <div id="footer">
         <!-- Footer creado en js en elementosPagina.js -->
     </div>
