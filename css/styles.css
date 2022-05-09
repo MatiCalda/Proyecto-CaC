@@ -1,7 +1,16 @@
-/*
- Main
-*/
-
+/* Body */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Main */
+/* .carousel {
+  width: 100%;
+} */
+.imagen {
+  width: 100vw;
+}
 /* SideBar */
 
 
@@ -14,6 +23,7 @@
 
 footer {
   color: white;
+  margin-top: auto;
 }
 
 footer h3 {
