@@ -38,9 +38,31 @@ const products = [
         precio: 5000,
         descripcion: "lorem insump 5",
         stock: 50
+    },
+    {
+        id: 6,
+        nombre: "Celular",
+        img: "../img/imagen.jpg",
+        precio: 10000,
+        descripcion: "lorem insump 6",
+        stock: 90
     }
 ];
-const carrito = [];
+
+class ProductCart {
+    constructor(producto, cantidad) {
+        this.product = producto;
+        this.cantidad = cantidad;
+    }
+};
+
+const cart = [];
+// Convertimos el array de objetos en un formato tipo JSON
+const productosEnStorage = JSON.stringify(products);
+// Guardamos en el localstorage el array JSON convertido de productos
+localStorage.setItem("products", productosEnStorage);
+
+// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -90,6 +112,19 @@ products.forEach(product => {
     // button3.innerText = "Ver Carrito";
 
     const button2 = document.createElement("button");
+    button2.setAttribute("data-id", product.id);
+    button2.addEventListener("click", e => {
+        let idProduct = parseInt(e.target.getAttribute("data-id"));
+        products.forEach(producto => {
+            if (producto.id === idProduct) {
+                let prodCart = new ProductCart(producto, 1);
+                cart.push(prodCart);
+                const carritoString = JSON.stringify(cart);
+                localStorage.setItem("carrito_2", carritoString);
+                console.log(prodCart.product.nombre);
+            }
+        });
+    });
     button2.className = "btnAgregar  badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
 
@@ -99,9 +134,23 @@ products.forEach(product => {
     const cardFooter = document.createElement("div");
     cardFooter.className = "card-footer";
 
-    // const small = document.createElement("small");
-    // small.className = "text-muted";
-    // small.innerText = product.stock
+
+    const addCartBtn = document.createElement("button");
+    addCartBtn.setAttribute("data-id", product.id);
+    addCartBtn.addEventListener("click", e => {
+        let idProduct = parseInt(e.target.getAttribute("data-id"));
+
+        products.forEach(producto => {
+            if (producto.id === idProduct) {
+                let prodCart = new ProductCart(producto, 1);
+                cart.push(prodCart);
+                const carritoString = JSON.stringify(cart);
+                localStorage.setItem("carrito_2", carritoString);
+                console.log(prodCart.product.nombre);
+            }
+        });
+    });
+
 
     cards.append(card);
     card.append(img, cardBody, cardFooter);
