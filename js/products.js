@@ -40,15 +40,28 @@ const products = [
         stock: 50
     }
 ];
+<<<<<<< HEAD
 const carrito = [];
+=======
+
+>>>>>>> main
 
 products.forEach(product => {
     // Enlazando el div contenedor
     const cards = document.getElementById("products");
+<<<<<<< HEAD
     // Creacion de las etiquetas con sus clases(.className) y el contenido (.innerText)
     const card = document.createElement("div");
     card.className = "card bg-transparent";
     card.id = `${product.id}`
+=======
+    // Creacion de las etiquetas con sus clases y el contenido
+    const col = document.createElement("div");
+    col.className = "col-md-4 pb-4";
+
+    const card = document.createElement("div");
+    card.className = "card ";
+>>>>>>> main
 
     const img = document.createElement("img");
     img.className = "card-img-top";
@@ -57,6 +70,7 @@ products.forEach(product => {
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
 
+<<<<<<< HEAD
     const h5 = document.createElement("h5");
     h5.className = "card-title text-light";
     h5.innerText = product.nombre;
@@ -92,10 +106,44 @@ products.forEach(product => {
 
     const icon = document.createElement("i");
     icon.className = "bi bi-cart-plus ri-xl"
+=======
+    const titulo = document.createElement("h5");
+    titulo.className = "card-title";
+    titulo.innerText = product.nombre;
+
+    const descripcion = document.createElement("p");
+    descripcion.className = "card-text";
+    descripcion.innerText = product.descripcion;
+
+    const small = document.createElement("small");
+    small.className = "text-muted";
+    small.innerHTML = "Stock: " + product.stock + " Unidades <br></br>";
+
+    const container = document.createElement("div");
+    container.className = "container-fluid";
+
+    const row = document.createElement("div");
+    row.className = "row justify-content-between";
+
+    const colPrecio = document.createElement("div");
+    colPrecio.className = "col alignt-middle";
+
+    const precio = document.createElement("p");
+    precio.className = "card-text";
+    precio.innerText = "$ " + product.precio;
+
+    const colButton = document.createElement("div");
+    colButton.className = "col text-right";
+
+    const comprarButton = document.createElement("button");
+    comprarButton.className = "btn btn-info";
+    comprarButton.innerText = "Comprar";
+>>>>>>> main
 
     const cardFooter = document.createElement("div");
     cardFooter.className = "card-footer";
 
+<<<<<<< HEAD
     // const small = document.createElement("small");
     // small.className = "text-muted";
     // small.innerText = product.stock
@@ -164,3 +212,30 @@ function verCarrito() {
     console.log(localStorage.getItem("carrito"));
     window.location.href = "cart.html"
 }
+=======
+    const textRight = document.createElement("div");
+    textRight.className = "text-right";
+    
+    const addCartBtn = document.createElement("a");
+    addCartBtn.href = "#"
+    addCartBtn.className = "text-decoration-none badge-pill badge-light py-1";
+    addCartBtn.innerHTML = "Añadir al carro <i class=\"bi bi-cart-plus ri-xl\"></i>";
+
+    cards.append(col);
+    col.append(card);
+    card.append(img, cardBody, cardFooter);
+    cardBody.append(titulo, descripcion, small, container);
+    container.append(row);
+    row.append(colPrecio, colButton);
+    colPrecio.append(precio);
+    colButton.append(comprarButton);
+    cardFooter.append(textRight);
+    textRight.append(addCartBtn);
+
+});
+
+
+
+
+
+>>>>>>> main
