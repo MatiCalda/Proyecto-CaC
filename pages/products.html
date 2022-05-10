@@ -150,9 +150,17 @@
     <!-- cierre modal login -->
     <br>
     <br>
-    <main class="d-flex">
+    <main class="d-inline-flex">
 
         <!-- Sidebar-->
+        <div class="border-end bg-transparent text-center text-light col-2" id="sidebar">
+            <div class="sidebar-heading bg-transparent">Categorias</div>
+            <div class="list-group list-group-flush">
+                <a href=""><h6>Celulares</h6></a>
+                <a href=""><h6>PC de escritorio</h6></a>
+                <a href=""><h6>Notebooks</h6></a>
+            </div>
+            <div class="sidebar-heading bg-transparent">Filtros</div>
         <div class="border-end text-center col-2" id="sidebar">
             <div class="sidebar-heading border-bottom bg-light">Filtros</div>
             <div class="list-group list-group-flush">
@@ -171,10 +179,8 @@
         </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="row" id="products">
-                <!-- cards dinamicas de productos  -->
-            </div>
+        <div class="row row-cols-3" id="products">
+            
         </div>
     </main>
 
@@ -190,9 +196,7 @@
 
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/index.js"></script>
     <script src="../js/products.js"></script>
-    <script src="../js/elementosPagina.js"></script>
 </body>
 
 </html>
