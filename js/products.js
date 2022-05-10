@@ -121,7 +121,6 @@ products.forEach(product => {
                 cart.push(prodCart);
                 const carritoString = JSON.stringify(cart);
                 localStorage.setItem("carrito_2", carritoString);
-                console.log(prodCart.product.nombre);
             }
         });
     });
@@ -133,24 +132,6 @@ products.forEach(product => {
 
     const cardFooter = document.createElement("div");
     cardFooter.className = "card-footer";
-
-
-    const addCartBtn = document.createElement("button");
-    addCartBtn.setAttribute("data-id", product.id);
-    addCartBtn.addEventListener("click", e => {
-        let idProduct = parseInt(e.target.getAttribute("data-id"));
-
-        products.forEach(producto => {
-            if (producto.id === idProduct) {
-                let prodCart = new ProductCart(producto, 1);
-                cart.push(prodCart);
-                const carritoString = JSON.stringify(cart);
-                localStorage.setItem("carrito_2", carritoString);
-                console.log(prodCart.product.nombre);
-            }
-        });
-    });
-
 
     cards.append(card);
     card.append(img, cardBody, cardFooter);
