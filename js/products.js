@@ -69,7 +69,7 @@ products.forEach(product => {
     p2.innerText = product.precio;
 
     const p3 = document.createElement("p");
-    p3.className = "d-none";
+    p3.className = "d-none id";
     p3.innerText = `${product.id}`;
 
     const divRight = document.createElement("div");
@@ -125,14 +125,14 @@ function comprar(e) {
     const boton = e.target;
     // Guardando los datos de la card al que pertenece el boton
     const card = boton.closest(".card");
-    // Guardando el contenido del titulo de la card
-    const titulo = card.querySelector(".card-title").textContent;
+    // Guardando el id de la card
+    const id = Number.parseInt(card.querySelector(".id").textContent);
     // Buscando y guardando producto en el carrito y en el localStorage
     products.forEach(producto => {
-        if (producto.nombre === titulo) {
+        if (producto.id === id) {
             carrito.push(producto);
-            // funcion para guardar el array
-            guardarEnlocalStorage
+    // Funcion para guardar el array
+            guardarEnlocalStorage()
         }
     });
     // Redirigiendo a carrito
@@ -153,11 +153,11 @@ function agregarCarrito(e) {
     const boton = e.target;
     // Guardando los datos de la card al que pertenece el boton
     const card = boton.closest(".card");
-    // Guardando el contenido del titulo de la card
-    const titulo = card.querySelector(".card-title").textContent;
+    // Guardando el id de la card
+    const id = Number.parseInt(card.querySelector(".id").textContent);
     // Buscando y guardando producto en el carrito
     products.forEach(producto => {
-        if (producto.nombre === titulo) {
+        if (producto.id === id) {
             carrito.push(producto);
             console.log(carrito);
         }
@@ -172,12 +172,12 @@ function agregarCarrito(e) {
 // }
 
 // Evento boton carrito
-const btnCarrito = document.getElementById("carrito");
+const btnCarrito = document.getElementById("btncarrito");
 btnCarrito.addEventListener("click", botonCarrito);
 
 function botonCarrito() {
     // funcion para guardar el array
-    guardarEnlocalStorage
+    guardarEnlocalStorage()
     // Redirigiendo a carrito
     window.location.href = "cart.html"
 
