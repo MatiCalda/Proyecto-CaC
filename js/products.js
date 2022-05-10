@@ -38,9 +38,24 @@ const products = [
         precio: 5000,
         descripcion: "lorem insump 5",
         stock: 50
+    },
+    {
+        id: 6,
+        nombre: "Celular",
+        img: "../img/imagen.jpg",
+        precio: 10000,
+        descripcion: "lorem insump 6",
+        stock: 90
     }
 ];
 
+
+// Convertimos el array de objetos en un formato tipo JSON
+const productosEnStorage = JSON.stringify(products);
+// Guardamos en el localstorage el array JSON convertido de productos
+localStorage.setItem("products", productosEnStorage);
+
+let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -97,8 +112,9 @@ products.forEach(product => {
     const textRight = document.createElement("div");
     textRight.className = "text-right";
     
-    const addCartBtn = document.createElement("a");
-    addCartBtn.href = "#"
+    const addCartBtn = document.createElement("button");
+    addCartBtn.id = "producto" + product.id;
+    addCartBtn.href = "#";
     addCartBtn.className = "text-decoration-none badge-pill badge-light py-1";
     addCartBtn.innerHTML = "Añadir al carro <i class=\"bi bi-cart-plus ri-xl\"></i>";
 
@@ -114,7 +130,6 @@ products.forEach(product => {
     textRight.append(addCartBtn);
 
 });
-
 
 
 
