@@ -121,7 +121,6 @@ products.forEach(product => {
                 cart.push(prodCart);
                 const carritoString = JSON.stringify(cart);
                 localStorage.setItem("carrito_2", carritoString);
-                console.log(prodCart.product.nombre);
             }
         });
     });
