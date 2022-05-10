@@ -21,21 +21,51 @@
 <body>
 
     <!-- Menu Navegacion  -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
+    <nav class="navbar navbar-expand-md navbar-light p-0 sticky-top">
         <a class="navbar-brand pl-2" href="/">
             <i class="ri-sword-line d-inline-block " alt="logo"></i>
             TecnoTienda
         </a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="/" class="nav-item nav-link active">Inicio</a>
+                <a href="../index.html" class="nav-item nav-link active">Inicio</a>
                 <a href="products.html" class="nav-item nav-link">Productos</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categorias</a>
-                    <div class="dropdown-menu">
-                        <a href="categories.html" class="dropdown-item">Categoria 1</a>
-                        <a href="categories.html" class="dropdown-item">Categoria 2</a>
-                        <a href="categories.html" class="dropdown-item">Categoria 3</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Caregorias
+                    </a>
+                    <div class="dropdown-menu dropdown-menu" aria-labelledby="servicesDropdown">
+                        <div class="d-md-flex ">
+                            <div>
+                                <div class="dropdown-header">Categoria 1</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 2</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 3</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                            </div>
+                            <div>
+                                <div class="dropdown-header">Categoria 4</div>
+                                <a class="dropdown-item" href="#">Subcategoria 1</a>
+                                <a class="dropdown-item" href="#">Subcategoria 2</a>
+                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                                <a class="dropdown-item" href="#">Subcategoria 4</a>
+                                <a class="dropdown-item" href="#">Subcategoria 5</a>
+                                <a class="dropdown-item" href="#">Subcategoria 6</a>
+                                <a class="dropdown-item" href="#">Subcategoria 7</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,24 +77,89 @@
             </form>
             <div class="navbar-nav">
                 <a href="cart.html" class="nav-item nav-link">
-                    <i class="ri-shopping-cart-line ri-2x"></i>
+                    <i class="ri-shopping-cart-line ri-2x" id="carrito"></i>
                 </a>
             </div>
             <!-- el siguiente div con un link se modificara por uno con un dropdown donde dira el alias, con las opciones de ir a:
             Mi perfil y Cerrar Sesion
             este dropdown aparecera cuando se verifiquen los datos en la base de datos -->
             <div class="navbar-nav pl-1">
-                <a href="login.html" class="nav-item nav-link pr-4">Iniciar Sesion</a>
+                <a href="#a" class="nav-item nav-link pr-4" data-toggle="modal" data-target="#login">Iniciar Sesion</a>
             </div>
         </div>
     </nav>
+    <!-- modal login -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Ingreso</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Ingrese su mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Ingrese su contraseña">
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round">Ingresar</button>
+                        </form>
+
+                        <div class="text-center text-muted delimiter">o ingrese con una red social</div>
+                        <div class="d-flex justify-content-center social-buttons">
+                            <div class="px-1">
+                                <button type="button" class="btn btn-secondary btn-circle" data-toggle="tooltip"
+                                    data-placement="top" title="Twitter">
+                                    <i class="bi bi-twitter"></i>
+                                </button>
+                            </div>
+                            <div class="px-1">
+                                <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                    data-placement="top" title="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </button>
+                            </div>
+                            <div class="px-1">
+                                <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                    data-placement="top" title="Linkedin">
+                                    <i class="bi bi-linkedin"></i>
+                                </button>
+                            </div>
+                            </di>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="signup-section">Aun no tienes cuenta? <a href="pages/singin.html" class="text-info">
+                            Registrar</a>.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- cierre modal login -->
     <br>
     <br>
-    <main class="d-flex">
+    <main class="d-inline-flex">
 
         <!-- Sidebar-->
-        <div class="border-end bg-white text-center col-2" id="sidebar">
-            <div class="sidebar-heading border-bottom bg-light">Filtros</div>
+        <div class="border-end text-center text-light col-2" id="sidebar">
+            <div class="sidebar-heading">Categorias</div>
+            <div class="list-group list-group-flush">
+                <a href=""><h6>Celulares</h6></a>
+                <a href=""><h6>PC de escritorio</h6></a>
+                <a href=""><h6>Notebooks</h6></a>
+            </div>
             <div class="list-group list-group-flush">
                 <h6>Precio</h6>
                 <a href="#">Desde 500 pesos</a>
@@ -79,197 +174,17 @@
                 <a href="#">Usado</a>
             </div>
         </div>
-        </div>
 
-        <div class="container-fluid">
-            <!-- Cards de productos en oferta modificada -->
-            <div class="card-deck m-5">
-                <!-- margen 5 -->
-                <!-- card numero 1 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <div class="text-right">
-                            <button class="btn btn-info">Comprar</button>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="text-right">
-                            <a href="" class="text-decoration-none badge-pill badge-light py-1">
-                                Añadir al carro
-                                <i class="bi bi-cart-plus ri-xl"></i>
-                            </a>
-                        </div>
-                        <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
-                    </div>
-                </div>
-
-                <!-- Card numero 2 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-                <!-- Card numero 3-->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height
-                            action.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="card-deck m-5">
-                <!-- margen 5 -->
-                <!-- card numero 1 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-                <!-- Card numero 2 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-                <!-- Card numero 3-->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height
-                            action.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="card-deck m-5">
-                <!-- margen 5 -->
-                <!-- card numero 1 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-                <!-- Card numero 2 -->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-                <!-- Card numero 3-->
-                <div class="card">
-                    <img src="../img/imagen.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height
-                            action.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+        <div class="container row row-cols-3" id="products">
+            
         </div>
     </main>
 
-    <footer>
-        <footer class="text-center footer-style">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 footer-col">
-                        <h3> <a href="/">TecnoTienda</a></h3>
-                        <p>
-                            CABA - Argentina <br />
-                            carrasco 400 <br>
-                            &copy;TecnoTienda™ Todos los derechos reservados
-                        </p>
-                    </div>
-                    <div class="col-md-4 footer-col">
-                        <ul class="list-inline">
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</i></a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</i></a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 footer-col">
-                        <a href="/" class="nav-item nav-link active">Inicio</a>
-                        <a href="products.html" class="nav-item nav-link">Productos</a>
-                        <a href="categories.html" class="nav-link">Categorias</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </footer>
+    <!--TODO Footer -->
+
+    <div id="footer">
+        <!-- Footer creado en js en elementosPagina.js -->
+    </div>
 
 
 
@@ -277,7 +192,8 @@
 
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/elementosPagina.js"></script>
 </body>
 
 </html>

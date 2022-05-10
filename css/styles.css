@@ -1,23 +1,18 @@
 
 .iconos i{
-
-    padding: 15px;
-    font-size: 25px;
-    
-    
+  padding: 15px;
+  font-size: 25px;    
 }
 
 
-.bi-twitter{
-
-    color: #1DA1F2;
+.bi-twitter-color{
+  color: #1DA1F2;
 }
 
-.bi-facebook{
-    color: #4267B2;
+.bi-facebook-color{
+  color: #4267B2;
 }
-.bi-instagram{
-
-    color: #630bac;
+.bi-instagram-color{
+  color: #a34de9;
 }
 
