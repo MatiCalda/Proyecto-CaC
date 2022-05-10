@@ -49,13 +49,20 @@ const products = [
     }
 ];
 
+class ProductCart {
+    constructor(producto, cantidad){
+        this.product = producto;
+        this.cantidad = cantidad;
+    }
+};
 
+const cart = [];
 // Convertimos el array de objetos en un formato tipo JSON
 const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
 localStorage.setItem("products", productosEnStorage);
 
-let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
+// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -113,9 +120,21 @@ products.forEach(product => {
     textRight.className = "text-right";
     
     const addCartBtn = document.createElement("button");
-    addCartBtn.id = "producto" + product.id;
-    addCartBtn.href = "#";
-    addCartBtn.className = "text-decoration-none badge-pill badge-light py-1";
+    addCartBtn.setAttribute("data-id", product.id);
+    addCartBtn.addEventListener("click", e =>{
+        let idProduct = parseInt(e.target.getAttribute("data-id"));
+
+        products.forEach(producto => {
+            if (producto.id === idProduct) {
+                let prodCart = new ProductCart(producto, 1);
+                cart.push(prodCart);
+                const carritoString = JSON.stringify(cart);
+                localStorage.setItem("carrito_2", carritoString);
+                console.log(prodCart.product.nombre);     
+            }
+        });      
+    });
+    addCartBtn.className = "border-0 btn-light badge badge-pill py-1";
     addCartBtn.innerHTML = "Añadir al carro <i class=\"bi bi-cart-plus ri-xl\"></i>";
 
     cards.append(col);
