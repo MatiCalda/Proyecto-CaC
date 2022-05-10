@@ -47,7 +47,7 @@ products.forEach(product => {
     const cards = document.getElementById("products");
     // Creacion de las etiquetas con sus clases(.className) y el contenido (.innerText)
     const card = document.createElement("div");
-    card.className = "card bg-transparent";
+    card.className = "card bg-light";
     card.id = `${product.id}`
 
     const img = document.createElement("img");
@@ -58,15 +58,15 @@ products.forEach(product => {
     cardBody.className = "card-body";
 
     const h5 = document.createElement("h5");
-    h5.className = "card-title text-light";
+    h5.className = "card-title";
     h5.innerText = product.nombre;
 
     const p = document.createElement("p");
-    p.className = "card-text text-light";
+    p.className = "card-text";
     p.innerText = product.descripcion;
 
     const p2 = document.createElement("p");
-    p2.className = "card-text text-light";
+    p2.className = "card-text";
     p2.innerText = product.precio;
 
     const divRight = document.createElement("div");
@@ -82,9 +82,9 @@ products.forEach(product => {
     // const div = document.createElement("div");
     // const div2 = document.createElement("div");
 
-    const button3 = document.createElement("button");
-    button3.className = "badge-pill badge-light py-1";
-    button3.innerText = "Ver Carrito";
+    // const button3 = document.createElement("button");
+    // button3.className = "badge-pill badge-light py-1";
+    // button3.innerText = "Ver Carrito";
 
     const button2 = document.createElement("button");
     button2.className = "badge-pill badge-light py-1";
@@ -105,7 +105,7 @@ products.forEach(product => {
     cardBody.append(h5, p, p2, divRight);
     divRight.append(button);
     cardFooter.append(divRight2);
-    divRight2.append(button2, button3);
+    divRight2.append(button2);
     button2.append(icon);
 });
 
@@ -116,14 +116,14 @@ cards.forEach((btnComprar) => {
 
 function selectorBotones(e) {
     const texto = e.target.textContent;
-    console.log(texto);
     if (texto === "Comprar") {
         comprar(e)
     } if (texto === "Agregar al Carrito") {
         agregarCarrito(e)
-    } if (texto === "Ver Carrito") {
-        verCarrito()
     }
+    // if (texto === "Ver Carrito") {
+    //     verCarrito()
+    // }
     return;
 }
 
@@ -158,9 +158,9 @@ function agregarCarrito(e) {
     });
 }
 
-function verCarrito() {
-    const carritoString = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoString);
-    // console.log(localStorage.getItem("carrito"));
-    window.location.href = "cart.html"
-}
+// function verCarrito() {
+//     const carritoString = JSON.stringify(carrito);
+//     localStorage.setItem("carrito", carritoString);
+//     // console.log(localStorage.getItem("carrito"));
+//     window.location.href = "cart.html"
+// }
