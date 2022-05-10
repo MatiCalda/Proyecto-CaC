@@ -70,7 +70,6 @@ products.forEach(product => {
     // Creacion de las etiquetas con sus clases(.className) y el contenido (.innerText)
     const card = document.createElement("div");
     card.className = "card bg-light";
-    card.id = `${product.id}`
 
     const img = document.createElement("img");
     img.className = "card-img-top";
@@ -91,11 +90,15 @@ products.forEach(product => {
     p2.className = "card-text";
     p2.innerText = product.precio;
 
+    const p3 = document.createElement("p");
+    p3.className = "d-none";
+    p3.innerText = `${product.id}`;
+
     const divRight = document.createElement("div");
     divRight.className = "text-right"
 
     const button = document.createElement("button");
-    button.className = "btn btn-info";
+    button.className = "btnComprar btn btn-info";
     button.innerText = "Comprar";
 
     const divRight2 = document.createElement("div");
@@ -122,7 +125,7 @@ products.forEach(product => {
             }
         });
     });
-    button2.className = "badge-pill badge-light py-1";
+    button2.className = "btnAgregar  badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
 
     const icon = document.createElement("i");
@@ -151,54 +154,57 @@ products.forEach(product => {
 
     cards.append(card);
     card.append(img, cardBody, cardFooter);
-    cardBody.append(h5, p, p2, divRight);
+    cardBody.append(h5, p, p2, p3, divRight);
     divRight.append(button);
     cardFooter.append(divRight2);
     divRight2.append(button2);
     button2.append(icon);
 });
 
-const cards = document.querySelectorAll(".card");
-cards.forEach((btnComprar) => {
-    btnComprar.addEventListener("click", selectorBotones)
+// Evento comprar
+// Enlazando a lista de botones comprar
+const botonesComprar = document.querySelectorAll(".btnComprar");
+// Recorriendo los botones, agregando la escucha de evento click para lanzar funcion comprar
+botonesComprar.forEach((btn) => {
+    btn.addEventListener("click", comprar)
 });
 
-function selectorBotones(e) {
-    const texto = e.target.textContent;
-    if (texto === "Comprar") {
-        comprar(e)
-    } if (texto === "Agregar al Carrito") {
-        agregarCarrito(e)
-    }
-    // if (texto === "Ver Carrito") {
-    //     verCarrito()
-    // }
-    return;
-}
-
 function comprar(e) {
+    // guardando los datos del boton clickeado
     const boton = e.target;
+    // Guardando los datos de la card al que pertenece el boton
     const card = boton.closest(".card");
+    // Guardando el contenido del titulo de la card
     const titulo = card.querySelector(".card-title").textContent;
-
+    // Buscando y guardando producto en el carrito y en el localStorage
     products.forEach(producto => {
         if (producto.nombre === titulo) {
             carrito.push(producto);
-            const carritoString = JSON.stringify(carrito);
-            localStorage.setItem("carrito", carritoString);
-            console.log(localStorage.getItem("carrito"));
+            // funcion para guardar el array
+            guardarEnlocalStorage
         }
     });
-
+    // Redirigiendo a carrito
     window.location.href = "cart.html"
 
 }
 
-function agregarCarrito(e) {
-    const boton = e.target;
-    const card = boton.closest(".card");
-    const titulo = card.querySelector(".card-title").textContent;
+// Evento agregar al carrito
+//  Enlazando todos los botones de agregar
+const botonesAgregar = document.querySelectorAll(".btnAgregar");
+// Recorriendo los botones, agregando la escucha de evento click para lanzar funcion agregarCarrito
+botonesAgregar.forEach((btn) => {
+    btn.addEventListener("click", agregarCarrito)
+});
 
+function agregarCarrito(e) {
+    // guardando los datos del boton clickeado
+    const boton = e.target;
+    // Guardando los datos de la card al que pertenece el boton
+    const card = boton.closest(".card");
+    // Guardando el contenido del titulo de la card
+    const titulo = card.querySelector(".card-title").textContent;
+    // Buscando y guardando producto en el carrito
     products.forEach(producto => {
         if (producto.nombre === titulo) {
             carrito.push(producto);
@@ -210,6 +216,23 @@ function agregarCarrito(e) {
 // function verCarrito() {
 //     const carritoString = JSON.stringify(carrito);
 //     localStorage.setItem("carrito", carritoString);
-//     // console.log(localStorage.getItem("carrito"));
+//     console.log(localStorage.getItem("carrito"));
 //     window.location.href = "cart.html"
 // }
+
+// Evento boton carrito
+const btnCarrito = document.getElementById("carrito");
+btnCarrito.addEventListener("click", botonCarrito);
+
+function botonCarrito() {
+    // funcion para guardar el array
+    guardarEnlocalStorage
+    // Redirigiendo a carrito
+    window.location.href = "cart.html"
+
+}
+
+function guardarEnlocalStorage() {
+    const carritoString = JSON.stringify(carrito);
+    localStorage.setItem("carrito", carritoString);
+}
