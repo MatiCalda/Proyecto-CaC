@@ -4,8 +4,9 @@
 <head>
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- link: https://remixicon.com -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- https://icons.getbootstrap.com -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,6 +57,9 @@
                     <i class="ri-shopping-cart-line ri-2x"></i>
                 </a>
             </div>
+            <!-- el siguiente div con un link se modificara por uno con un dropdown donde dira el alias, con las opciones de ir a:
+            Mi perfil y Cerrar Sesion
+            este dropdown aparecera cuando se verifiquen los datos en la base de datos -->
             <div class="navbar-nav pl-1">
                 <a href="#a" class="nav-item nav-link pr-4" data-toggle="modal" data-target="#login">Iniciar Sesion</a>
             </div>
@@ -209,6 +213,9 @@
     <!--TODO Footer -->
 
     <footer>
+        <div class="iconos text-right p-2">
+            <img src="https://www.brooksfieldstore.com/modules/themeeditor/img/footer_logo_1.jpg">
+         </div>
         <footer class="text-center footer-style">
             <div class="container">
                 <div class="row">
@@ -223,19 +230,16 @@
                     <div class="col-md-4 footer-col">
                         <ul class="list-inline">
                             <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
+                                <h6>Redes</h6> 
                             </li>
                             <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</i></a>
+                                <a target="_blank" href="https://www.Twitter.com" class="btn-social btn-outline"><i class="bi-twitter ri-2x"></i></a>
                             </li>
                             <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</i></a>
+                                <a target="_blank" href="https://www.Facebook.com" class="btn-social btn-outline"><i class="bi-facebook ri-2x"></i></a>
                             </li>
                             <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#" class="btn-social btn-outline">Redes</a>
+                                <a target="_blank" href="https://www.instagram.com" class="btn-social btn-outline"><i class="bi bi-instagram ri-2x"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -260,12 +264,5 @@
     <script src="js/index.js"></script>
 
 </body>
-<footer>
-   <div class="iconos text-right">
-       <img src="https://www.brooksfieldstore.com/modules/themeeditor/img/footer_logo_1.jpg">
-       <i class="bi-twitter"></i>
-       <i class="bi-facebook"></i>
-       <i class="bi bi-instagram"></i>
-    </div>
-</footer>
+
 </html>
