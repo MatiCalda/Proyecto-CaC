@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="../index.html" class="nav-item nav-link active">Inicio</a>
-                <a href="pages/products.html" class="nav-item nav-link">Productos</a>
+                <a href="products.html" class="nav-item nav-link">Productos</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,40 +96,19 @@
                 <thead>
                     <tr>
                         <th scope="col">Producto</th>
+                        <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Total</th>
                     </tr>
                 </thead>
-                <tbody >
-                    <tr>
-                        <td>
-                            <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
-                        </td>
-                        <td class="align-middle">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat elit, posuere a aliquam in,
-                                mattis a erat. Vestibulum ligula.
-                        </td>
-                        <td class="align-middle">
-                            1
-                        </td>
-                        <td class="align-middle">
-                            $10.00
-                        </td>
-                        <td class="align-middle">
-                            $10.00
-                        </td>
-                        <td class="align-middle">
-                            <a class="ri-delete-bin-2-line text-decoration-none ri-lg"></a>
-                        </td>
-                    </tr>
-
+                <tbody id="carrito">
                     
                 </tbody>
                 <tr>
-                    <th colspan="4" scope="col" class="text-right">TOTAL :</th>
-                    <th scope="col">
+                    <th colspan="6" scope="col" class="text-right">TOTAL :</th>
+                    <th scope="col" id="total">
                         <!-- <input id="total" name="monto" class="font-weight-bold border-0" readonly style="background-color: white;"></input> -->
                     </th>
                     
@@ -152,7 +131,9 @@
             </div>
         </div>
     </div><!-- container -->
+    <div id="test">
 
+    </div>
     <!--TODO Footer -->
     
     <div id="footer">
@@ -307,6 +288,7 @@
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/elementosPagina.js"></script>
 </body>
 
