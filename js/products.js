@@ -40,7 +40,18 @@ const products = [
         stock: 50
     }
 ];
+
+// class ProductCart {
+
+//     constructor(producto, cantidad) {
+//         this.product = producto;
+//         this.cantidad = cantidad;
+//     }
+// };
+
 const carrito = [];
+
+// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -69,6 +80,10 @@ products.forEach(product => {
     p2.className = "card-text text-light";
     p2.innerText = product.precio;
 
+    const p3 = document.createElement("p");
+    p3.className = "d-none id";
+    p3.innerText = `${product.id}`;
+
     const divRight = document.createElement("div");
     divRight.className = "text-right"
 
@@ -79,15 +94,23 @@ products.forEach(product => {
     const divRight2 = document.createElement("div");
     divRight2.className = "text-right"
 
-    // const div = document.createElement("div");
-    // const div2 = document.createElement("div");
 
-    const button3 = document.createElement("button");
-    button3.className = "badge-pill badge-light py-1";
-    button3.innerText = "Ver Carrito";
+    // button2.setAttribute("data-id", product.id);
+    // button2.addEventListener("click", e => {
+    //     let idProduct = parseInt(e.target.getAttribute("data-id"));
+    //     products.forEach(producto => {
+    //         if (producto.id === idProduct) {
+    //             let prodCart = new ProductCart(producto, 1);
+    //             cart.push(prodCart);
+    //             const carritoString = JSON.stringify(cart);
+    //             localStorage.setItem("carrito_2", carritoString);
+    //             console.log(prodCart.product.nombre);
+    //         }
+    //     });
+    // });
 
     const button2 = document.createElement("button");
-    button2.className = "badge-pill badge-light py-1";
+    button2.className = "btnAgregar  badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
 
     const icon = document.createElement("i");
@@ -96,9 +119,23 @@ products.forEach(product => {
     const cardFooter = document.createElement("div");
     cardFooter.className = "card-footer";
 
-    // const small = document.createElement("small");
-    // small.className = "text-muted";
-    // small.innerText = product.stock
+
+    // const addCartBtn = document.createElement("button");
+    // addCartBtn.setAttribute("data-id", product.id);
+    // addCartBtn.addEventListener("click", e => {
+    //     let idProduct = parseInt(e.target.getAttribute("data-id"));
+
+    //     products.forEach(producto => {
+    //         if (producto.id === idProduct) {
+    //             let prodCart = new ProductCart(producto, 1);
+    //             cart.push(prodCart);
+    //             const carritoString = JSON.stringify(cart);
+    //             localStorage.setItem("carrito_2", carritoString);
+
+    //         }
+    //     });
+    // });
+
 
     cards.append(card);
     card.append(img, cardBody, cardFooter);
@@ -135,9 +172,8 @@ function comprar(e) {
     products.forEach(producto => {
         if (producto.nombre === titulo) {
             carrito.push(producto);
-            const carritoString = JSON.stringify(carrito);
-            localStorage.setItem("carrito", carritoString);
-            console.log(localStorage.getItem("carrito"));
+            // funcion para guardar el array
+            guardarEnlocalStorage()
         }
     });
 
@@ -148,17 +184,29 @@ function comprar(e) {
 function agregarCarrito(e) {
     const boton = e.target;
     const card = boton.closest(".card");
-    const titulo = card.querySelector(".card-title").textContent;
-
+    // Guardando el contenido del titulo de la card
+    const id = card.querySelector(".id").textContent;
+    // Buscando y guardando producto en el carrito
     products.forEach(producto => {
-        if (producto.nombre === titulo) {
-            carrito.push(producto);
-            console.log(carrito);
+        if (producto.id === id) {
+            // Quiero recorrer el array carrito y si el producto ya existe, crear cantidad y sumarle 1
         }
     });
 }
 
-function verCarrito() {
+// Evento boton carrito
+const btnCarrito = document.getElementById("btncarrito");
+btnCarrito.addEventListener("click", botonCarrito);
+
+function botonCarrito() {
+    // funcion para guardar el array
+    guardarEnlocalStorage
+    // Redirigiendo a carrito
+    window.location.href = "cart.html"
+
+}
+
+function guardarEnlocalStorage() {
     const carritoString = JSON.stringify(carrito);
     localStorage.setItem("carrito", carritoString);
     // console.log(localStorage.getItem("carrito"));
