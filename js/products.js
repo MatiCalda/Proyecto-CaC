@@ -56,7 +56,8 @@ class ProductCart {
     }
 };
 
-const cart = [];
+
+const cart = JSON.parse(localStorage.getItem("carrito_2"));
 // Convertimos el array de objetos en un formato tipo JSON
 const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
@@ -98,6 +99,8 @@ products.forEach(product => {
     divRight.className = "text-right"
 
     const button = document.createElement("button");
+    button.setAttribute("data-toggle", "modal");
+    button.setAttribute("data-target", "#formaDePago");
     button.className = "btnComprar btn btn-info";
     button.innerText = "Comprar";
 
@@ -113,12 +116,18 @@ products.forEach(product => {
 
     const button2 = document.createElement("button");
     button2.setAttribute("data-id", product.id);
-    button2.addEventListener("click", e => {
+    button2.addEventListener("click", e => { // agrega el producto al carrito
         let idProduct = parseInt(e.target.getAttribute("data-id"));
         products.forEach(producto => {
             if (producto.id === idProduct) {
                 let prodCart = new ProductCart(producto, 1);
-                cart.push(prodCart);
+
+                let itemCarrito = cart.find( item => {return item.product.id === idProduct;});
+                if(itemCarrito == undefined){   // si no encontro el elemento en el carrito
+                    cart.push(prodCart);
+                }else{
+                    itemCarrito.cantidad++;
+                }
                 const carritoString = JSON.stringify(cart);
                 localStorage.setItem("carrito_2", carritoString);
             }
@@ -169,7 +178,7 @@ function comprar(e) {
     window.location.href = "cart.html"
 
 }
-
+/*
 // Evento agregar al carrito
 //  Enlazando todos los botones de agregar
 const botonesAgregar = document.querySelectorAll(".btnAgregar");
@@ -177,7 +186,7 @@ const botonesAgregar = document.querySelectorAll(".btnAgregar");
 botonesAgregar.forEach((btn) => {
     btn.addEventListener("click", agregarCarrito)
 });
-
+*/
 function agregarCarrito(e) {
     // guardando los datos del boton clickeado
     const boton = e.target;
