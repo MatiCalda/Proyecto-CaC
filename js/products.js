@@ -1,15 +1,15 @@
 const products = [
     {
         id: 1,
-        nombre: "Notebook",
+        nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         img: "../img/Products/D_NQ_NP_810980-MLA47325699671_092021-O.webp",
-        precio: 1000,
+        precio: 11.900,
         descripcion: "lorem insump 1",
         stock: 10
     },
     {
         id: 2,
-        nombre: "Kit Gamer",
+        nombre: "Silla Gamer Pc Escritorio Sillón Ergonómico Acero Inoxidable",
         img: "../img/Products/D_NQ_NP_867798-MLA48662490744_122021-O.webp",
         precio: 2000,
         descripcion: "lorem insump 2",
