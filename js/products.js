@@ -57,12 +57,22 @@ class ProductCart {
 };
 
 
-const cart = JSON.parse(localStorage.getItem("carrito_2"));
+const cart = obtenerCarrito();
 // Convertimos el array de objetos en un formato tipo JSON
 const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
 localStorage.setItem("products", productosEnStorage);
 
+function obtenerCarrito(){
+    let theCart = [];
+    if(localStorage.getItem('carrito_2') == undefined){ // si no existe el carrito
+        localStorage.setItem("carrito_2", JSON.stringify(theCart));
+    }else{
+        theCart = JSON.parse(localStorage.getItem("carrito_2"));
+    }
+
+    return theCart;
+}
 // let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
@@ -121,14 +131,16 @@ products.forEach(product => {
         products.forEach(producto => {
             if (producto.id === idProduct) {
                 let prodCart = new ProductCart(producto, 1);
-
-                let itemCarrito = cart.find( item => {return item.product.id === idProduct;});
-                if(itemCarrito == undefined){   // si no encontro el elemento en el carrito
+                console.log("hasta aca llegue1")
+                let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
+                console.log("hasta aca llegue2")
+                if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
                     cart.push(prodCart);
-                }else{
+                } else {
                     itemCarrito.cantidad++;
                 }
                 const carritoString = JSON.stringify(cart);
+                console.log(carritoString);
                 localStorage.setItem("carrito_2", carritoString);
             }
         });

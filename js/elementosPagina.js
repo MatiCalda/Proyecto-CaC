@@ -5,7 +5,6 @@ function loadHTML() {
     .then(response=> response.text())
     .then(text=> document.getElementById('footer').innerHTML = text);
     */
-
     let html = '';
     html += '    <br><br><br><br>'
     html += '        <footer class="fixed-bottom text-center footer-style py-2">'

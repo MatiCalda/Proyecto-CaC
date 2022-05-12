@@ -65,7 +65,6 @@ function mostrarCarrito(){
     
     
             total -= precioProducto;
-            // actualizarTotal(total);
             mostrarCarrito();
             console.log(idProduct);
         })
@@ -82,15 +81,7 @@ function removeItemOnce(arr, value) {
     }
     return arr;
   }
-  /*
-function borrarProducto(idProducto) {
-    const borrar = document.getElementById(idProducto);
-    borrar.parentNode.removeChild(borrar);
-    total -= precioProducto;
-    agregarTotal();
-    console.log(idProducto)
-}
-*/
+
 function actualizarTotal(totalCalculado) {
     console.log(totalCalculado);
     let html = `
@@ -100,6 +91,3 @@ function actualizarTotal(totalCalculado) {
     `;
     document.getElementById('total').innerHTML = html;
 }
-
-
-
