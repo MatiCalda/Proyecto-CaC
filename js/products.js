@@ -1,16 +1,16 @@
 const products = [
     {
         id: 1,
-        nombre: "Producto 1",
-        img: "../img/imagen.jpg",
+        nombre: "Notebook",
+        img: "../img/Products/D_NQ_NP_810980-MLA47325699671_092021-O.webp",
         precio: 1000,
         descripcion: "lorem insump 1",
         stock: 10
     },
     {
         id: 2,
-        nombre: "Producto 2",
-        img: "../img/imagen.jpg",
+        nombre: "Kit Gamer",
+        img: "../img/Products/D_NQ_NP_867798-MLA48662490744_122021-O.webp",
         precio: 2000,
         descripcion: "lorem insump 2",
         stock: 20
@@ -18,23 +18,22 @@ const products = [
     {
         id: 3,
         nombre: "Producto 3",
-        img: "../img/imagen.jpg",
+        img: "../img",
         precio: 3000,
         descripcion: "lorem insump 3",
         stock: 30
     },
     {
         id: 4,
-        nombre: "Producto 4",
-        img: "../img/imagen.jpg",
+        nombre: "Buffer",
+        img: "../img/",
         precio: 4000,
-        descripcion: "lorem insump 4",
         stock: 40
     },
     {
         id: 5,
-        nombre: "Producto 5",
-        img: "../img/imagen.jpg",
+        nombre: "Smartphones varios modelos",
+        img: "../img/",
         precio: 5000,
         descripcion: "lorem insump 5",
         stock: 50
@@ -42,7 +41,7 @@ const products = [
     {
         id: 6,
         nombre: "Celular",
-        img: "../img/imagen.jpg",
+        img: "../img/",
         precio: 10000,
         descripcion: "lorem insump 6",
         stock: 90
@@ -74,10 +73,10 @@ products.forEach(product => {
     const img = document.createElement("img");
     img.className = "card-img-top";
     img.src = product.img;
-
+    
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
-
+   
     const h5 = document.createElement("h5");
     h5.className = "card-title";
     h5.innerText = product.nombre;
