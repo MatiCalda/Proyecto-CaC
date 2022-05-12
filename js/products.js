@@ -9,39 +9,39 @@ const products = [
     },
     {
         id: 2,
-        nombre: "Silla Gamer Pc Escritorio Sillón Ergonómico Acero Inoxidable",
-        img: "../img/Products/D_NQ_NP_867798-MLA48662490744_122021-O.webp",
+        nombre: "Silla Gamer Pc",
+        img: "../img/Productos/Silla gamer.webp",
         precio: 2000,
         descripcion: "lorem insump 2",
         stock: 20
     },
     {
         id: 3,
-        nombre: "Producto 3",
-        img: "../img",
+        nombre: "Kit de Pc completa",
+        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.webp",
         precio: 3000,
         descripcion: "lorem insump 3",
         stock: 30
     },
     {
         id: 4,
-        nombre: "Buffer",
-        img: "../img/",
+        nombre: "Kit Strike 4 en 1",
+        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.webp",
         precio: 4000,
         stock: 40
     },
     {
         id: 5,
-        nombre: "Smartphones varios modelos",
-        img: "../img/",
+        nombre: "Pc Armada Intel Core i7",
+        img: "../img/Productos/Computadora armada.webp",
         precio: 5000,
         descripcion: "lorem insump 5",
         stock: 50
     },
     {
         id: 6,
-        nombre: "Celular",
-        img: "../img/",
+        nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
+        img: "../img/Productos/imagen.jpg",
         precio: 10000,
         descripcion: "lorem insump 6",
         stock: 90
