@@ -69,7 +69,7 @@ products.forEach(product => {
     // Creacion de las etiquetas con sus clases(.className) y el contenido (.innerText)
     const card = document.createElement("div");
     card.className = "card bg-light";
-
+        
     const img = document.createElement("img");
     img.className = "card-img-top";
     img.src = product.img;
