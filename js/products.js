@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        img: "../img/Products/D_NQ_NP_810980-MLA47325699671_092021-O.webp",
+        img: "../img/Products/D_NQ_NP_810980-MLA47325699671_092021-O.jpeg",
         precio: 11.900,
         descripcion: "lorem insump 1",
         stock: 10
@@ -10,7 +10,7 @@ const products = [
     {
         id: 2,
         nombre: "Silla Gamer Pc",
-        img: "../img/Productos/Silla gamer.webp",
+        img: "../img/Productos/Silla gamer.jpeg",
         precio: 2000,
         descripcion: "lorem insump 2",
         stock: 20
@@ -18,7 +18,7 @@ const products = [
     {
         id: 3,
         nombre: "Kit de Pc completa",
-        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.webp",
+        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpeg",
         precio: 3000,
         descripcion: "lorem insump 3",
         stock: 30
@@ -26,14 +26,14 @@ const products = [
     {
         id: 4,
         nombre: "Kit Strike 4 en 1",
-        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.webp",
+        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpeg",
         precio: 4000,
         stock: 40
     },
     {
         id: 5,
         nombre: "Pc Armada Intel Core i7",
-        img: "../img/Productos/Computadora armada.webp",
+        img: "../img/Productos/Computadora armada.jpeg",
         precio: 5000,
         descripcion: "lorem insump 5",
         stock: 50
