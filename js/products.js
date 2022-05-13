@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        img: "../img/Products/D_NQ_NP_810980-MLA47325699671_092021-O.jpeg",
+        img: "../img/Productos/Monitor.jpeg",
         precio: 11.900,
         descripcion: "lorem insump 1",
         stock: 10
@@ -41,7 +41,7 @@ const products = [
     {
         id: 6,
         nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
-        img: "../img/Productos/imagen.jpg",
+        img: "../img/Productos/imagen.jpeg",
         precio: 10000,
         descripcion: "lorem insump 6",
         stock: 90
