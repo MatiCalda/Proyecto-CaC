@@ -48,8 +48,7 @@ const products = [
         stock: 90
     }
 ];
-const carrito = [];
-let html = "";
+let cart = [];
 
 class ProductCart {
     constructor(producto, cantidad) {
@@ -57,17 +56,6 @@ class ProductCart {
         this.cantidad = cantidad;
     }
 };
-
-
-const cart = JSON.parse(localStorage.getItem("carrito_2"));
-// Convertimos el array de objetos en un formato tipo JSON
-const productosEnStorage = JSON.stringify(products);
-// Guardamos en el localstorage el array JSON convertido de productos
-localStorage.setItem("products", productosEnStorage);
-
-// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
-
-// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -111,29 +99,9 @@ products.forEach(product => {
     const divRight2 = document.createElement("div");
     divRight2.className = "text-right"
 
-
-    // const button3 = document.createElement("button");
-    // button3.className = "badge-pill badge-light py-1";
-    // button3.innerText = "Ver Carrito";
-
     const button2 = document.createElement("button");
     button2.setAttribute("data-id", product.id);
-    button2.addEventListener("click", e => { // agrega el producto al carrito
-        let idProduct = parseInt(e.target.getAttribute("data-id"));
-        products.forEach(producto => {
-            if (producto.id === idProduct) {
-                let prodCart = new ProductCart(producto, 1);
-
-                let itemCarrito = cart.find( item => {return item.product.id === idProduct;});
-                if(itemCarrito == undefined){   // si no encontro el elemento en el carrito
-                    cart.push(prodCart);
-                }else{
-                    itemCarrito.cantidad++;
-                }
-                guardarEnlocalStorage(cart)
-            }
-        });
-    });
+    button2.addEventListener("click", agregarAlCarrito);
     button2.className = "btnAgregar  badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
 
@@ -151,6 +119,24 @@ products.forEach(product => {
     divRight2.append(button2);
     button2.append(icon);
 });
+
+function agregarAlCarrito(e) { 
+    // agrega el producto al carrito
+    let idProduct = parseInt(e.target.getAttribute("data-id"));
+    products.forEach(producto => {
+        if (producto.id === idProduct) {
+            let prodCart = new ProductCart(producto, 1);
+
+            let itemCarrito = cart.find( item => {return item.product.id === idProduct;});
+            if(itemCarrito == undefined){   // si no encontro el elemento en el carrito
+                cart.push(prodCart);
+            }else{
+                itemCarrito.cantidad++;
+            }
+            guardarEnlocalStorage(cart)
+        }
+    });
+}
 
 // Evento boton carrito
 const btnCarrito = document.getElementById("btncarrito");
