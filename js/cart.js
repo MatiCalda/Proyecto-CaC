@@ -1,4 +1,4 @@
-cart = JSON.parse(localStorage.getItem("carrito_2"));
+cart = JSON.parse(localStorage.getItem("cart"));
 
 function mostrarCarrito(){
     var total = 0;
@@ -59,7 +59,7 @@ function mostrarCarrito(){
                     }
     
                     const carritoString = JSON.stringify(cart);
-                    localStorage.setItem("carrito_2", carritoString);
+                    localStorage.setItem("cart", carritoString);
                 }
             });
     
