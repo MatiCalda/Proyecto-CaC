@@ -1,5 +1,23 @@
 var tieneErrores = true;
 
+function validarNombre(){
+    let esValido;
+    let campo = document.getElementById("nombre");
+    if (campo.value.length < 3) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
+        document.getElementById("nombreWarning").innerText = "Nombre muy corto.";
+        esValido = false;
+    }
+    else{
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
+        document.getElementById("nombreWarning").innerHTML = "&nbsp;";
+        esValido = true;
+    }
+    return esValido;
+}
+/*
 document.getElementById("nombre").addEventListener('focusout', e => {
     let campo = e.target.value;
     if (campo.length < 3) {
@@ -127,12 +145,14 @@ document.getElementById("verifClave").addEventListener('focusout', e => {
         document.getElementById("verifClaveWarning").innerHTML = "&nbsp;";
     }
 });
+*/
+
 
 document.getElementById("form").addEventListener('submit', e =>{
-    if (tieneErrores) {
-        e.preventDefault();
-        alert("no envio");
-    }else{
+    e.preventDefault();
+    if (validarNombre()) {
         e.target.submit();
+    }else{
+        alert("no envio");
     }
 })
