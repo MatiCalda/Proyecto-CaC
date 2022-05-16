@@ -2,15 +2,15 @@ const products = [
     {
         id: 1,
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        img: "../img/Productos/Monitor.jpeg",
-        precio: 11.900,
+        img: "../img/Productos/Monitor.jpg",
+        precio: 11900,
         descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         stock: 10
     },
     {
         id: 2,
         nombre: "Silla Gamer Pc",
-        img: "../img/Productos/Silla gamer.jpeg",
+        img: "../img/Productos/Silla gamer.jpg",
         precio: 2000,
         descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
         stock: 20
@@ -18,7 +18,7 @@ const products = [
     {
         id: 3,
         nombre: "Kit de Pc completa",
-        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpeg",
+        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
         precio: 3000,
         descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
         stock: 30
@@ -26,7 +26,7 @@ const products = [
     {
         id: 4,
         nombre: "Kit Strike 4 en 1",
-        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpeg",
+        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
         precio: 4000,
         descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
         stock: 40
@@ -34,7 +34,7 @@ const products = [
     {
         id: 5,
         nombre: "Pc Armada Intel Core i7",
-        img: "../img/Productos/Computadora armada.jpeg",
+        img: "../img/Productos/Computadora armada.jpg",
         precio: 5000,
         descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
         stock: 50
@@ -42,7 +42,7 @@ const products = [
     {
         id: 6,
         nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
-        img: "../img/Productos/imagen.jpeg",
+        img: "../img/Productos/imagen.jpg",
         precio: 10000,
         descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         stock: 90
@@ -56,13 +56,21 @@ class ProductCart {
     }
 };
 
-const cart = [];
+const cart = obtenerCarrito();
 // Convertimos el array de objetos en un formato tipo JSON
 const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
 localStorage.setItem("products", productosEnStorage);
 
-// let productosObtenidosDelStorage = JSON.parse(localStorage.getItem("products"));
+function obtenerCarrito(){
+    let theCart = [];
+    if(localStorage.getItem('cart') == undefined){ // si no existe el carrito
+        localStorage.setItem("cart", JSON.stringify(theCart));
+    }else{
+        theCart = JSON.parse(localStorage.getItem("cart"));
+    }
+    return theCart;
+}
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -98,35 +106,37 @@ products.forEach(product => {
     divRight.className = "text-right"
 
     const button = document.createElement("button");
+    button.setAttribute("data-toggle", "modal");
+    button.setAttribute("data-target", "#formaDePago");
     button.className = "btnComprar btn btn-info";
     button.innerText = "Comprar";
 
     const divRight2 = document.createElement("div");
     divRight2.className = "text-right"
 
-    // const div = document.createElement("div");
-    // const div2 = document.createElement("div");
-
-    // const button3 = document.createElement("button");
-    // button3.className = "badge-pill badge-light py-1";
-    // button3.innerText = "Ver Carrito";
-
-    const button2 = document.createElement("button");
+    const button2 = document.createElement("a");
+    button2.href = ("javascript:void(0)");
     button2.setAttribute("data-id", product.id);
-    button2.addEventListener("click", e => {
+    button2.className = "btnAgregar text-decoration-none badge-pill badge-light py-1";
+    button2.innerText = "Agregar al Carrito";
+    button2.addEventListener("click", e => { // agrega el producto al carrito
         let idProduct = parseInt(e.target.getAttribute("data-id"));
         products.forEach(producto => {
             if (producto.id === idProduct) {
                 let prodCart = new ProductCart(producto, 1);
-                cart.push(prodCart);
+                let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
+                if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
+                    cart.push(prodCart);
+                } else {
+                    itemCarrito.cantidad++;
+                }
                 const carritoString = JSON.stringify(cart);
-                localStorage.setItem("carrito_2", carritoString);
+                console.log(carritoString);
+                localStorage.setItem("cart", carritoString);
             }
         });
     });
-    button2.className = "btnAgregar  badge-pill badge-light py-1";
-    button2.innerText = "Agregar al Carrito";
-
+    
     const icon = document.createElement("i");
     icon.className = "bi bi-cart-plus ri-xl"
 
@@ -142,78 +152,3 @@ products.forEach(product => {
     button2.append(icon);
 });
 
-// Evento comprar
-// Enlazando a lista de botones comprar
-const botonesComprar = document.querySelectorAll(".btnComprar");
-// Recorriendo los botones, agregando la escucha de evento click para lanzar funcion comprar
-botonesComprar.forEach((btn) => {
-    btn.addEventListener("click", comprar)
-});
-
-function comprar(e) {
-    // guardando los datos del boton clickeado
-    const boton = e.target;
-    // Guardando los datos de la card al que pertenece el boton
-    const card = boton.closest(".card");
-    // Guardando el contenido del titulo de la card
-    const titulo = card.querySelector(".card-title").textContent;
-    // Buscando y guardando producto en el carrito y en el localStorage
-    products.forEach(producto => {
-        if (producto.nombre === titulo) {
-            carrito.push(producto);
-            // funcion para guardar el array
-            guardarEnlocalStorage
-        }
-    });
-    // Redirigiendo a carrito
-    window.location.href = "cart.html"
-
-}
-
-// Evento agregar al carrito
-//  Enlazando todos los botones de agregar
-const botonesAgregar = document.querySelectorAll(".btnAgregar");
-// Recorriendo los botones, agregando la escucha de evento click para lanzar funcion agregarCarrito
-botonesAgregar.forEach((btn) => {
-    btn.addEventListener("click", agregarCarrito)
-});
-
-function agregarCarrito(e) {
-    // guardando los datos del boton clickeado
-    const boton = e.target;
-    // Guardando los datos de la card al que pertenece el boton
-    const card = boton.closest(".card");
-    // Guardando el contenido del titulo de la card
-    const titulo = card.querySelector(".card-title").textContent;
-    // Buscando y guardando producto en el carrito
-    products.forEach(producto => {
-        if (producto.nombre === titulo) {
-            carrito.push(producto);
-            console.log(carrito);
-        }
-    });
-}
-
-// function verCarrito() {
-//     const carritoString = JSON.stringify(carrito);
-//     localStorage.setItem("carrito", carritoString);
-//     console.log(localStorage.getItem("carrito"));
-//     window.location.href = "cart.html"
-// }
-
-// Evento boton carrito
-const btnCarrito = document.getElementById("carrito");
-btnCarrito.addEventListener("click", botonCarrito);
-
-function botonCarrito() {
-    // funcion para guardar el array
-    guardarEnlocalStorage
-    // Redirigiendo a carrito
-    window.location.href = "cart.html"
-
-}
-
-function guardarEnlocalStorage() {
-    const carritoString = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoString);
-}
