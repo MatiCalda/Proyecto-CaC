@@ -4,7 +4,7 @@ const products = [
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         img: "../img/Productos/Monitor.jpg",
         precio: 11900,
-        descripcion: "lorem insump 1",
+        descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         stock: 10
     },
     {
@@ -12,7 +12,7 @@ const products = [
         nombre: "Silla Gamer Pc",
         img: "../img/Productos/Silla gamer.jpg",
         precio: 2000,
-        descripcion: "lorem insump 2",
+        descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
         stock: 20
     },
     {
@@ -20,7 +20,7 @@ const products = [
         nombre: "Kit de Pc completa",
         img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
         precio: 3000,
-        descripcion: "lorem insump 3",
+        descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
         stock: 30
     },
     {
@@ -28,6 +28,7 @@ const products = [
         nombre: "Kit Strike 4 en 1",
         img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
         precio: 4000,
+        descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
         stock: 40
     },
     {
@@ -35,7 +36,7 @@ const products = [
         nombre: "Pc Armada Intel Core i7",
         img: "../img/Productos/Computadora armada.jpg",
         precio: 5000,
-        descripcion: "lorem insump 5",
+        descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
         stock: 50
     },
     {
@@ -43,7 +44,7 @@ const products = [
         nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         img: "../img/Productos/imagen.jpg",
         precio: 10000,
-        descripcion: "lorem insump 6",
+        descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         stock: 90
     }
 ];
