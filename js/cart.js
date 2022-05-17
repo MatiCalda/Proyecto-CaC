@@ -10,7 +10,7 @@ function mostrarCarrito() {
         let html = `
             <tr id="${pedido.product.id}">
                 <td>
-                    <img src="https://picsum.photos/100" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <img src="${pedido.product.img}" class="avatar img-circle img-thumbnail img-cart" alt="avatar">
                 </td>
                 <td class="align-middle">
                     ${pedido.product.nombre}
@@ -22,10 +22,10 @@ function mostrarCarrito() {
                     ${pedido.cantidad}
                 </td>
                 <td class="align-middle">
-                    $ ${pedido.product.precio}
+                    $${pedido.product.precio}
                 </td>
                 <td class="align-middle">
-                    $ ${subTotal}
+                    $${subTotal}
                 </td>
                 <td class="align-middle">
                     <a class="btnEliminar ri-delete-bin-2-line text-decoration-none ri-lg" data-id="${pedido.product.id}"></a>
@@ -100,7 +100,7 @@ function actualizarTotal(totalCalculado) {
     console.log(totalCalculado);
     let html = `
         <th scope="col">
-            $ ${totalCalculado}
+            $${totalCalculado}
         </th>
     `;
     document.getElementById('total').innerHTML = html;
