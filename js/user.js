@@ -3,7 +3,8 @@ users = obtenerUsuarios();
 
 const btnSingIn = document.getElementById("btnSignIn");
 btnSingIn.addEventListener("click", e => {
-    if (buscarUsuario(document.getElementById("email").value) != undefined) {
+    e.preventDefault();
+    if (buscarUsuario(document.getElementById("email").value) != undefined) { // si el usuario existe
         const correo = document.getElementById("emailWarning");
         correo.innerText = "El mail ya está registrado";
     } else {
