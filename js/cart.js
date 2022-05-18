@@ -21,11 +21,11 @@ function mostrarCarrito() {
                 <td class="align-middle text-center">
                     ${pedido.cantidad}
                 </td>
-                <td class="align-middle">
-                    $${pedido.product.precio}
+                <td class="align-middle text-right">
+                    $&nbsp;${pedido.product.precio}
                 </td>
-                <td class="align-middle">
-                    $${subTotal}
+                <td class="align-middle text-right">
+                    $&nbsp;${subTotal}
                 </td>
                 <td class="align-middle">
                     <a class="btnEliminar ri-delete-bin-2-line text-decoration-none ri-lg" data-id="${pedido.product.id}"></a>
@@ -97,7 +97,6 @@ function removeItemOnce(arr, value) {
 }
 
 function actualizarTotal(totalCalculado) {
-    console.log(totalCalculado);
     let html = `
         <th scope="col">
             $${totalCalculado}

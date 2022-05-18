@@ -48,7 +48,8 @@
                     <small class="warning" id="emailWarning">&nbsp;</small>
                 </div>
                 <div class="col-5">
-                    <input type="email" class="form-control" id="verifEmail" placeholder="Repita correo electronico" required >
+                    <input type="email" class="form-control" id="verifEmail" placeholder="Repita correo electronico"
+                        required>
                     <small class="warning" id="verifEmailWarning">&nbsp;</small>
                 </div>
             </div>
@@ -58,7 +59,8 @@
                     <small id="claveWarning">Debe tener como mínimo 6 caracteres</small>
                 </div>
                 <div class="col-5">
-                    <input type="password" class="form-control" id="verifClave" placeholder="Repita contraseña" required>
+                    <input type="password" class="form-control" id="verifClave" placeholder="Repita contraseña"
+                        required>
                     <small class="warning" id="verifClaveWarning">&nbsp;</small>
                 </div>
             </div>
@@ -73,12 +75,34 @@
         </div>
     </main>
 
+    <!-- modal registro exitoso -->
+    <div class="modal fade" id="msjOK" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Registro</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success" role="alert">
+                        El usuario ha sido registrado exitosamente
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="../index.html" class="btn btn-info">Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="../js/verificarSignin.js"></script>
-    <script src="../js/user.js"></script>
+
+    <!-- fin modal registro exitoso -->
+
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/signIn.js"></script>
+    <script src="../js/user.js"></script>
 </body>
 
 </html>
