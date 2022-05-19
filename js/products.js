@@ -3,7 +3,7 @@ const products = [
         id: 1,
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         img: "../img/Productos/Monitor.jpg",
-        precio: 11900,
+        precio: 12500,
         descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         stock: 10
     },
@@ -11,7 +11,7 @@ const products = [
         id: 2,
         nombre: "Silla Gamer Pc",
         img: "../img/Productos/Silla gamer.jpg",
-        precio: 2000,
+        precio: 22999,
         descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
         stock: 20
     },
@@ -19,15 +19,15 @@ const products = [
         id: 3,
         nombre: "Kit de Pc completa",
         img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
-        precio: 3000,
+        precio: 53999,
         descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
         stock: 30
     },
     {
         id: 4,
-        nombre: "Kit Strike 4 en 1",
+        nombre: "Kit Xtrike 4 en 1",
         img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
-        precio: 4000,
+        precio: 1932,
         descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
         stock: 40
     },
@@ -35,7 +35,7 @@ const products = [
         id: 5,
         nombre: "Pc Armada Intel Core i7",
         img: "../img/Productos/Computadora armada.jpg",
-        precio: 5000,
+        precio: 68999,
         descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
         stock: 50
     },
@@ -43,7 +43,7 @@ const products = [
         id: 6,
         nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         img: "../img/Productos/imagen.jpg",
-        precio: 10000,
+        precio: 89900,
         descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         stock: 90
     }
