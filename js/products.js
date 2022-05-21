@@ -1,54 +1,53 @@
 const products = [
     {
         id: 1,
-        nombre: "Producto 1",
-        img: "../img/imagen.jpg",
-        precio: 1000,
-        descripcion: "lorem insump 1",
+        nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
+        img: "../img/Productos/Monitor.jpg",
+        precio: 12500,
+        descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         stock: 10
     },
     {
         id: 2,
-        nombre: "Producto 2",
-        img: "../img/imagen.jpg",
-        precio: 2000,
-        descripcion: "lorem insump 2",
+        nombre: "Silla Gamer Pc",
+        img: "../img/Productos/Silla gamer.jpg",
+        precio: 22999,
+        descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
         stock: 20
     },
     {
         id: 3,
-        nombre: "Producto 3",
-        img: "../img/imagen.jpg",
-        precio: 3000,
-        descripcion: "lorem insump 3",
+        nombre: "Kit de Pc completa",
+        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
+        precio: 53999,
+        descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
         stock: 30
     },
     {
         id: 4,
-        nombre: "Producto 4",
-        img: "../img/imagen.jpg",
-        precio: 4000,
-        descripcion: "lorem insump 4",
+        nombre: "Kit Xtrike 4 en 1",
+        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
+        precio: 1932,
+        descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
         stock: 40
     },
     {
         id: 5,
-        nombre: "Producto 5",
-        img: "../img/imagen.jpg",
-        precio: 5000,
-        descripcion: "lorem insump 5",
+        nombre: "Pc Armada Intel Core i7",
+        img: "../img/Productos/Computadora armada.jpg",
+        precio: 68999,
+        descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
         stock: 50
     },
     {
         id: 6,
-        nombre: "Celular",
-        img: "../img/imagen.jpg",
-        precio: 10000,
-        descripcion: "lorem insump 6",
+        nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
+        img: "../img/Productos/imagen.jpg",
+        precio: 89900,
+        descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         stock: 90
     }
 ];
-let cart = [];
 
 class ProductCart {
     constructor(producto, cantidad) {
@@ -56,6 +55,22 @@ class ProductCart {
         this.cantidad = cantidad;
     }
 };
+
+const cart = obtenerCarrito();
+// Convertimos el array de objetos en un formato tipo JSON
+const productosEnStorage = JSON.stringify(products);
+// Guardamos en el localstorage el array JSON convertido de productos
+localStorage.setItem("products", productosEnStorage);
+
+function obtenerCarrito() {
+    let theCart = [];
+    if (localStorage.getItem('cart') == undefined) { // si no existe el carrito
+        localStorage.setItem("cart", JSON.stringify(theCart));
+    } else {
+        theCart = JSON.parse(localStorage.getItem("cart"));
+    }
+    return theCart;
+}
 
 products.forEach(product => {
     // Enlazando el div contenedor
@@ -81,11 +96,7 @@ products.forEach(product => {
 
     const p2 = document.createElement("p");
     p2.className = "card-text";
-    p2.innerText = product.precio;
-
-    const p3 = document.createElement("p");
-    p3.className = "d-none";
-    p3.innerText = `${product.id}`;
+    p2.innerText = "$" + product.precio;
 
     const divRight = document.createElement("div");
     divRight.className = "text-right"
@@ -99,11 +110,12 @@ products.forEach(product => {
     const divRight2 = document.createElement("div");
     divRight2.className = "text-right"
 
-    const button2 = document.createElement("button");
+    const button2 = document.createElement("a");
+    button2.href = ("javascript:void(0)");
     button2.setAttribute("data-id", product.id);
-    button2.addEventListener("click", agregarAlCarrito);
-    button2.className = "btnAgregar  badge-pill badge-light py-1";
+    button2.className = "btnAgregar text-decoration-none badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
+    button2.addEventListener("click", agregarAlCarrito);
 
     const icon = document.createElement("i");
     icon.className = "bi bi-cart-plus ri-xl"
@@ -113,27 +125,28 @@ products.forEach(product => {
 
     cards.append(card);
     card.append(img, cardBody, cardFooter);
-    cardBody.append(h5, p, p2, p3, divRight);
-    divRight.append(button);
+    cardBody.append(h5, p, divRight);
+    divRight.append(p2,button);
     cardFooter.append(divRight2);
     divRight2.append(button2);
     button2.append(icon);
 });
 
-function agregarAlCarrito(e) { 
+function agregarAlCarrito(e) {
     // agrega el producto al carrito
     let idProduct = parseInt(e.target.getAttribute("data-id"));
     products.forEach(producto => {
         if (producto.id === idProduct) {
             let prodCart = new ProductCart(producto, 1);
 
-            let itemCarrito = cart.find( item => {return item.product.id === idProduct;});
-            if(itemCarrito == undefined){   // si no encontro el elemento en el carrito
+            let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
+            if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
                 cart.push(prodCart);
-            }else{
+            } else {
                 itemCarrito.cantidad++;
             }
-            guardarEnlocalStorage(cart)
+            console.log(cart)
+            guardarEnlocalStorage("cart", cart)
         }
     });
 }
@@ -144,13 +157,12 @@ btnCarrito.addEventListener("click", botonCarrito);
 
 function botonCarrito() {
     // funcion para guardar el array
-    guardarEnlocalStorage
+    // guardarEnlocalStorage
     // Redirigiendo a carrito
     window.location.href = "cart.html"
 
 }
 
-function guardarEnlocalStorage(carrito) {
-    const carritoString = JSON.stringify(carrito);
-    localStorage.setItem("carrito", carritoString);
+function guardarEnlocalStorage(clave, valor) {
+    localStorage.setItem(clave, JSON.stringify(valor));
 }
