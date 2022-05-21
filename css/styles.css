@@ -85,3 +85,10 @@ body {
 .bi-instagram-color{
   color: #a34de9;
 }
+.carousel-inner{
+padding: 3em;
+}
+.img-cart{
+  height: 5rem;
+  width: 8rem;
+}
