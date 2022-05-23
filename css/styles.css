@@ -88,6 +88,11 @@ body {
 .carousel-inner{
 padding: 3em;
 }
+.img-carrousel{
+  width: 100%;
+  height: auto;
+}
+
 
 .img-cart{
   height: 5rem;
