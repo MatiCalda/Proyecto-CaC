@@ -1,3 +1,6 @@
+let userActivo;
+userActivo = obtenerUsuarioActivo();
+
 // validaciones SignIn
 
 var esValido = {
@@ -11,6 +14,7 @@ var esValido = {
     verifClave: false,
 }
 
+procesarLogIn(userActivo);
 habilitarSignIn();
 
 document.getElementById("nombre").addEventListener('focusout', e => {
@@ -151,9 +155,9 @@ document.getElementById("verifClave").addEventListener('focusout', e => {
 
 function camposValidos() {
     let valido = true;
-    let valores = Object.values(esValido);
-    for (let i = 0; i < valores.length; i++) {
-        valido &&= valores[i];
+    let keys = Object.values(esValido);
+    for (let i = 0; i < keys.length; i++) {
+        valido &&= keys[i];
     }
     return valido;
 }
@@ -194,6 +198,38 @@ btnSingIn.addEventListener("click", e => {
         })
     }
 })
+
+function procesarLogIn(userActivo) {
+    if (userActivo) {
+        document.getElementById("titulo").innerText = 'Datos de Perfil';
+        document.getElementById("btnSignIn").innerText = 'Guardar';
+        document.getElementById("nombre").value = userActivo.nombre;
+        document.getElementById("apellido").value = userActivo.apellido;
+        document.getElementById("alias").value = userActivo.alias;
+        document.getElementById("codigoPostal").value = userActivo.codigoPostal;
+        document.getElementById("email").value = userActivo.email;
+        document.getElementById("clave").value = userActivo.clave;
+        document.getElementById("verifEmail").value = userActivo.email;
+        document.getElementById("verifClave").value = userActivo.clave;
+        //fuerzo a poner esValido todo en true
+        let keys = Object.keys(esValido);
+        for (let i = 0; i < keys.length; i++) {
+            esValido[keys[i]] = true;
+        }
+        document.getElementById("btnSignIn").removeAttribute("disabled");
+    } else {
+        document.getElementById("titulo").innerText = 'Registrate';
+        document.getElementById("btnSignIn").innerText = 'Registrar';
+    }
+}
+
+function obtenerUsuarioActivo() {
+    let user;
+    if (localStorage.getItem('userActivo')) {
+        user = JSON.parse(localStorage.getItem("userActivo"));
+    }
+    return user;
+}
 
 function buscarUsuario(email) {
     let user = users.find(user => { return user.email === email; });
