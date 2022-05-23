@@ -1,11 +1,12 @@
-const products = [
+let products = [
     {
         id: 1,
         nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         img: "../img/Productos/Monitor.jpg",
         precio: 12500,
         descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        stock: 10
+        stock: 10,
+        categoria: "componentes"
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const products = [
         img: "../img/Productos/Silla gamer.jpg",
         precio: 22999,
         descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
-        stock: 20
+        stock: 20,
+        categoria: "componentes"
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const products = [
         img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
         precio: 53999,
         descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
-        stock: 30
+        stock: 30,
+        categoria: "pc"
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ const products = [
         img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
         precio: 1932,
         descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
-        stock: 40
+        stock: 40,
+        categoria: "componentes"
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ const products = [
         img: "../img/Productos/Computadora armada.jpg",
         precio: 68999,
         descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
-        stock: 50
+        stock: 50,
+        categoria: "pc"
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ const products = [
         img: "../img/Productos/imagen.jpg",
         precio: 89900,
         descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
-        stock: 90
+        stock: 90,
+        categoria: "pc"
     }
 ];
 
@@ -71,7 +77,7 @@ function obtenerCarrito() {
     }
     return theCart;
 }
-
+function imprimirCards() {
 products.forEach(product => {
     // Enlazando el div contenedor
     const cards = document.getElementById("products");
@@ -131,6 +137,8 @@ products.forEach(product => {
     divRight2.append(button2);
     button2.append(icon);
 });
+}
+imprimirCards();
 
 function agregarAlCarrito(e) {
     // agrega el producto al carrito
