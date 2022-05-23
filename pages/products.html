@@ -22,7 +22,7 @@
 
     <!-- Menu Navegacion  -->
     <nav class="navbar navbar-expand-md navbar-light p-0 sticky-top">
-        <a class="navbar-brand pl-2" href="../index.html">
+        <a class="navbar-brand pl-2" href="../index.html" id="linkInicio">
             <i class="ri-sword-line d-inline-block " alt="logo"></i>
             TecnoTienda
         </a>
@@ -83,8 +83,26 @@
             <!-- el siguiente div con un link se modificara por uno con un dropdown donde dira el alias, con las opciones de ir a:
             Mi perfil y Cerrar Sesion
             este dropdown aparecera cuando se verifiquen los datos en la base de datos -->
-            <div class="navbar-nav pl-1">
+            <div class="navbar-nav pl-1 d-none" id="btnNoLogged">
                 <a href="#a" class="nav-item nav-link pr-4" data-toggle="modal" data-target="#login">Iniciar Sesion</a>
+            </div>
+            <div class="navbar-nav pl-1 d-none" id="btnLogged">
+                <div class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="servicesDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="navbar-nav">
+                            <span class="align-middle" id="aliasUser"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="servicesDropdown">
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <a class="dropdown-item" href="singin.html">Perfil</a>
+                                <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Sesion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -93,7 +111,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div id="msjEstado">
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeLogIn">
                         <span aria-hidden="true">&times;</span>
                     </button>
 
@@ -106,12 +126,17 @@
                         <form>
                             <div class="form-group">
                                 <input type="email" class="form-control" id="email" placeholder="Ingrese su mail">
+                                <div id="emailWarning"></div>
+                                <!-- <small class="warning" id="emailWarning">&nbsp;</small> -->
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" id="password"
                                     placeholder="Ingrese su contraseña">
+                                <div id="passWarning"></div>
+                                <!-- <small class="warning" id="passWarning">&nbsp;</small> -->
                             </div>
-                            <button type="button" class="btn btn-info btn-block btn-round">Ingresar</button>
+                            <button type="button" class="btn btn-info btn-block btn-round"
+                                id="btnLogIn">Ingresar</button>
                         </form>
 
                         <div class="text-center text-muted delimiter">o ingrese con una red social</div>
@@ -156,9 +181,15 @@
         <div class="border-end text-center text-light col-2" id="sidebar">
             <div class="sidebar-heading">Categorias</div>
             <div class="list-group list-group-flush">
-                <a href=""><h6>Celulares</h6></a>
-                <a href=""><h6>PC de escritorio</h6></a>
-                <a href=""><h6>Notebooks</h6></a>
+                <a href="">
+                    <h6>Celulares</h6>
+                </a>
+                <a href="">
+                    <h6>PC de escritorio</h6>
+                </a>
+                <a href="">
+                    <h6>Notebooks</h6>
+                </a>
             </div>
             <div class="list-group list-group-flush">
                 <h6>Precio</h6>
@@ -176,7 +207,7 @@
         </div>
 
         <div class="container row row-cols-3" id="products">
-            
+
         </div>
     </main>
     <!--TODO Footer -->
@@ -325,9 +356,9 @@
     </div>
 
 
-    
 
-    
+
+
 
 
 
@@ -336,6 +367,7 @@
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/products.js"></script>
+    <script src="../js/logIn.js"></script>
     <script src="../js/elementosPagina.js"></script>
 </body>
 
