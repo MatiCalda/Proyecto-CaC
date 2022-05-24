@@ -12,7 +12,7 @@ function loadHTMLCards() {
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${product.nombre}</h5>
                         <p class="card-text">${product.descripcion}</p>
-                        <p class="card-text">${product.precio}</p>
+                        <p class="card-text">$${product.precio}</p>
                         <div class="align-items-end">
                             <div class="text-right">
                                 <button data-toggle="modal" data-target="#formaDePago"
