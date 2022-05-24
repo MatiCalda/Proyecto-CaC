@@ -1,60 +1,3 @@
-let products = [
-    {
-        id: 1,
-        nombre: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        img: "../img/Productos/Monitor.jpg",
-        precio: 12500,
-        descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
-        stock: 10,
-        categoria: "componentes"
-    },
-    {
-        id: 2,
-        nombre: "Silla Gamer Pc",
-        img: "../img/Productos/Silla gamer.jpg",
-        precio: 22999,
-        descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
-        stock: 20,
-        categoria: "componentes"
-    },
-    {
-        id: 3,
-        nombre: "Kit de Pc completa",
-        img: "../img/Productos/Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit.jpg",
-        precio: 53999,
-        descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
-        stock: 30,
-        categoria: "pc"
-    },
-    {
-        id: 4,
-        nombre: "Kit Xtrike 4 en 1",
-        img: "../img/Productos/Kit Xtrike-me Gamer 4 En 1.jpg",
-        precio: 1932,
-        descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
-        stock: 40,
-        categoria: "componentes"
-    },
-    {
-        id: 5,
-        nombre: "Pc Armada Intel Core i7",
-        img: "../img/Productos/Computadora armada.jpg",
-        precio: 68999,
-        descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
-        stock: 50,
-        categoria: "pc"
-    },
-    {
-        id: 6,
-        nombre: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
-        img: "../img/Productos/imagen.jpg",
-        precio: 89900,
-        descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
-        stock: 90,
-        categoria: "pc"
-    }
-];
-
 class ProductCart {
     constructor(producto, cantidad) {
         this.product = producto;
@@ -63,10 +6,7 @@ class ProductCart {
 };
 
 const cart = obtenerCarrito();
-// Convertimos el array de objetos en un formato tipo JSON
-const productosEnStorage = JSON.stringify(products);
-// Guardamos en el localstorage el array JSON convertido de productos
-localStorage.setItem("products", productosEnStorage);
+const products = obtenerProductos();
 
 function obtenerCarrito() {
     let theCart = [];
@@ -77,7 +17,13 @@ function obtenerCarrito() {
     }
     return theCart;
 }
-function imprimirCards() {
+
+function obtenerProductos(){
+    let products;
+    products = JSON.parse(localStorage.getItem("products"));
+    return products;
+}
+
 products.forEach(product => {
     // Enlazando el div contenedor
     const cards = document.getElementById("products");
@@ -87,8 +33,8 @@ products.forEach(product => {
 
     const img = document.createElement("img");
     img.className = "card-img-top";
-    img.src = product.img;
-
+    img.src = "../img/Productos/"+product.img;
+    
     const cardBody = document.createElement("div");
     cardBody.className = "card-body";
 
@@ -137,8 +83,7 @@ products.forEach(product => {
     divRight2.append(button2);
     button2.append(icon);
 });
-}
-imprimirCards();
+
 
 function agregarAlCarrito(e) {
     // agrega el producto al carrito

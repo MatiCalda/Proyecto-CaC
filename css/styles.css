@@ -80,25 +80,21 @@ body {
 }
 
 .bi-facebook-color{
-  color: #4267B2;
+  color: #1c4eb3;
 }
 .bi-instagram-color{
   color: #a34de9;
 }
 .carousel-inner{
-<<<<<<< HEAD
 padding: 3em;
-=======
-padding-left: 25%;
-
-
->>>>>>> 7008f37b6caabb629b1baaa87485155ec3494cc1
 }
+.img-carrousel{
+  width: 100%;
+  height: auto;
+}
+
+
 .img-cart{
   height: 5rem;
   width: 8rem;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7008f37b6caabb629b1baaa87485155ec3494cc1
