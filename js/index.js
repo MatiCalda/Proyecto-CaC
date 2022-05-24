@@ -79,25 +79,6 @@ const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
 localStorage.setItem("products", productosEnStorage);
 
-/* const btnsAddCart = document.getElementsByClassName("btnAgregar");
-btnsAddCart.forEach(btnAddCart =>{ */
-/* button2.addEventListener("click", e => { // agrega el producto al carrito
-    let idProduct = parseInt(e.target.getAttribute("data-id"));
-    products.forEach(producto => {
-        if (producto.id === idProduct) {
-            let prodCart = new ProductCart(producto, 1);
-            let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
-            if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
-                cart.push(prodCart);
-            } else {
-                itemCarrito.cantidad++;
-            }
-            const carritoString = JSON.stringify(cart);
-            console.log(carritoString);
-            localStorage.setItem("cart", carritoString);
-        }
-    });
-}); */
 
 const wrapper = document.getElementById('productsIndex');
 wrapper.addEventListener('click', e => {
