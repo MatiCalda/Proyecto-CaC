@@ -36,7 +36,7 @@ products.forEach(product => {
     img.src = "../img/Productos/"+product.img;
     
     const cardBody = document.createElement("div");
-    cardBody.className = "card-body";
+    cardBody.className = "card-body d-flex flex-column";
    
     const h5 = document.createElement("h5");
     h5.className = "card-title";
@@ -48,14 +48,14 @@ products.forEach(product => {
 
     const p2 = document.createElement("p");
     p2.className = "card-text";
-    p2.innerText = product.precio;
+    p2.innerText = "$ " + product.precio.toLocaleString("en");
 
     const p3 = document.createElement("p");
     p3.className = "d-none";
     p3.innerText = `${product.id}`;
 
     const divRight = document.createElement("div");
-    divRight.className = "text-right"
+    divRight.className = "mt-auto text-right"
 
     const button = document.createElement("button");
     button.setAttribute("data-toggle", "modal");
