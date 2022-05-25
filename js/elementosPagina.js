@@ -45,7 +45,8 @@ function loadHTMLCards() {
 
 }
 function loadHTMLFooter() {
-    let html = `
+    if (!!document.getElementById("footer")) {
+        let html = `
     <br><br><br><br>
         <footer class="fixed-bottom text-center footer-style py-2">
             <div class="container-fluid">
@@ -74,12 +75,13 @@ function loadHTMLFooter() {
                 </div>
             </div>
         </footer> `
-    document.getElementById('footer').innerHTML = html;
+        document.getElementById('footer').innerHTML = html;
+    }
 }
 
-
 function loadHTMLFormaDePago() {
-    let html = `
+    if (!!document.getElementById("formaDePago")) {
+        let html = `
     <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -218,5 +220,6 @@ function loadHTMLFormaDePago() {
             </div>
         </div>
     `;
-    document.getElementById('formaDePago').innerHTML = html;
+        document.getElementById('formaDePago').innerHTML = html;
+    }
 }
