@@ -12,7 +12,7 @@ function mostrarCarrito() {
         let html = `
             <tr id="${pedido.product.id}">
                 <td>
-                    <img src="../img/Productos/${pedido.product.img}" class="avatar img-circle img-thumbnail img-cart" alt="${pedido.product.nombre}">
+                    <img src="../img/productos/${pedido.product.img}" class="avatar img-circle img-thumbnail img-cart" alt="${pedido.product.nombre}">
                 </td>
                 <td class="align-middle">
                     ${pedido.product.nombre}

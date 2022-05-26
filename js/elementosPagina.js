@@ -18,7 +18,7 @@ function loadHTMLCards() {
             if (product.destacado) {
                 let html = `
             <div class="card bg-light">
-                    <img class="card-img-top" src="img/Productos/${product.img}">
+                    <img class="card-img-top" src="img/productos/${product.img}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${product.nombre}</h5>
                         <p class="card-text">${product.descripcion}</p>
