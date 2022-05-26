@@ -10,6 +10,9 @@ function actualizarIconoCarrito(){
     let valor = theCart.reduce( (total, producto) => {
         return total + producto.cantidad;
     }, 0);
-    console.log('actualizo icono');
-    badgeIconoCarrito.innerText = valor;
+    if (valor) {
+        badgeIconoCarrito.innerText = valor;
+    } else{
+        badgeIconoCarrito.innerText = '';
+    }
 }
