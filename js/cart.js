@@ -65,6 +65,7 @@ function mostrarCarrito() {
 
 
             total -= precioProducto;
+            actualizarIconoCarrito();
             mostrarCarrito();
         })
     });
@@ -82,7 +83,7 @@ const borrarTodoCarrito = document.getElementById("btnBorrarTodo");
 borrarTodoCarrito.addEventListener("click", e => {
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
-
+    actualizarIconoCarrito();
     mostrarCarrito();
 })
 

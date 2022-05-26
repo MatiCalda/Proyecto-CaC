@@ -86,6 +86,7 @@ products.forEach(product => {
                 console.log(carritoString);
                 localStorage.setItem("cart", carritoString);
             }
+            actualizarIconoCarrito();
         });
     });
     
