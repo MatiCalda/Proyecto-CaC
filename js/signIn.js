@@ -1,6 +1,15 @@
 let userActivo;
 userActivo = obtenerUsuarioActivo();
-
+var campos = [
+    'nombre',
+    'apellido',
+    'alias',
+    'codigoPostal',
+    'email',
+    'verifEmail',
+    'clave',
+    'verifClave',
+]
 // validaciones SignIn
 
 var esValido = {
@@ -15,143 +24,150 @@ var esValido = {
 }
 
 procesarLogIn(userActivo);
-habilitarSignIn();
 
-document.getElementById("nombre").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo.length < 3) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+
+
+//habilitarSignIn();
+
+function validarNombre() {
+    let campo = document.getElementById("nombre");
+    if (campo.value.length < 3) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("nombreWarning").innerText = "Nombre muy corto.";
         esValido["nombre"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("nombreWarning").innerHTML = "&nbsp;";
         esValido["nombre"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("apellido").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo.length < 3) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarApellido() {
+    let campo = document.getElementById("apellido");
+    if (campo.value.length < 3) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("apellidoWarning").innerText = "Apellido muy corto.";
         esValido["apellido"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("apellidoWarning").innerHTML = "&nbsp;";
         esValido["apellido"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("alias").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo.length == 0) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarAlias() {
+    let campo = document.getElementById("alias");
+    if (campo.value.length == 0) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("aliasWarning").innerText = "Alias muy corto.";
         esValido["alias"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("aliasWarning").innerHTML = "&nbsp;";
         esValido["alias"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("codigoPostal").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo.length < 4) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarCodigoPostal() {
+    let campo = document.getElementById("codigoPostal");
+    if (campo.value.length < 4) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("codigoPostalWarning").innerText = "El codigo postal debe tener mínimo 4 digitos.";
         esValido["codigoPostal"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("codigoPostalWarning").innerHTML = "&nbsp;";
         esValido["codigoPostal"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("email").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (!campo.includes("@") || !campo.includes(".com")) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarEmail() {
+    let campo = document.getElementById("email");
+    if (!campo.value.includes("@") || !campo.value.includes(".com")) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("emailWarning").innerText = "Email no válido";
         esValido["email"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("emailWarning").innerHTML = "&nbsp;";
         esValido["email"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("verifEmail").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo != document.getElementById("email").value) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarVerifEmail() {
+    let campo = document.getElementById("verifEmail");
+    if (campo.value != document.getElementById("email").value) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("verifEmailWarning").innerText = "El email no corresponde con el anterior";
         esValido["verifEmail"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("verifEmailWarning").innerHTML = "&nbsp;";
         esValido["verifEmail"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("clave").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo.length < 6) {
+    //habilitarSignIn();
+}
+function validarClave() {
+    let campo = document.getElementById("clave");
+    if (campo.value.length < 6) {
         document.getElementById("claveWarning").className = "warning";
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         esValido["clave"] = false;
     }
     else {
         document.getElementById("claveWarning").className = "light";
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         esValido["clave"] = true;
     }
-    habilitarSignIn();
-});
-
-document.getElementById("verifClave").addEventListener('focusout', e => {
-    let campo = e.target.value;
-    if (campo != document.getElementById("clave").value) {
-        e.target.classList.add("alert-danger");
-        e.target.classList.add("border-danger");
+    //habilitarSignIn();
+}
+function validarVerifClave() {
+    let campo = document.getElementById("verifClave");
+    if (campo.value != document.getElementById("clave").value) {
+        campo.classList.add("alert-danger");
+        campo.classList.add("border-danger");
         document.getElementById("verifClaveWarning").innerText = "La contraseña no corresponde con la anterior";
         esValido["verifClave"] = false;
     }
     else {
-        e.target.classList.remove("border-danger");
-        e.target.classList.remove("alert-danger");
+        campo.classList.remove("border-danger");
+        campo.classList.remove("alert-danger");
         document.getElementById("verifClaveWarning").innerHTML = "&nbsp;";
         esValido["verifClave"] = true;
     }
-    habilitarSignIn();
+    //habilitarSignIn();
+}
+
+
+
+campos.forEach(campo => {
+    document.getElementById(campo).addEventListener("focus", e => {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById(campo + "Warning").innerHTML = "&nbsp;";
+    })
 });
+
 
 function camposValidos() {
     let valido = true;
@@ -162,15 +178,6 @@ function camposValidos() {
     return valido;
 }
 
-function habilitarSignIn() {
-    const btnSignIn = document.getElementById("btnSignIn");
-    if (camposValidos()) {
-        btnSignIn.removeAttribute("disabled");
-    } else {
-        btnSignIn.setAttribute("disabled", true);
-    }
-}
-
 // SignIn
 
 let users = [];
@@ -179,10 +186,85 @@ users = obtenerUsuarios();
 const btnSingIn = document.getElementById("btnSignIn");
 btnSingIn.addEventListener("click", e => {
     e.preventDefault();
-    if (buscarUsuario(document.getElementById("email").value) != undefined) { // si el usuario existe
-        const correo = document.getElementById("emailWarning");
-        correo.innerText = "El mail ya está registrado";
-    } else {
+    // verifico valores de los imputs
+    validarNombre();
+    validarApellido();
+    validarAlias();
+    validarCodigoPostal();
+    validarEmail();
+    validarVerifEmail();
+    validarClave();
+    validarVerifClave();
+
+    if (camposValidos()) {
+        if (userActivo) {// si tiene un usuario activo
+            // actualizo datos de usuario
+            userActivo.nombre = document.getElementById("nombre").value;
+            userActivo.apellido = document.getElementById("apellido").value;
+            userActivo.alias = document.getElementById("alias").value;
+            userActivo.codigoPostal = document.getElementById("codigoPostal").value;
+            userActivo.email = document.getElementById("email").value;
+            userActivo.clave = document.getElementById("clave").value;
+            users.forEach(e => {
+                if (e.email == userActivo.email) {
+                    e.nombre = userActivo.nombre;
+                    e.apellido = userActivo.apellido;
+                    e.alias = userActivo.alias;
+                    e.codigoPostal = userActivo.codigoPostal;
+                    e.clave = userActivo.clave;
+                    localStorage.setItem("userActivo", JSON.stringify(userActivo));
+                }
+            })
+            localStorage.setItem("users", JSON.stringify(users));
+        } else {
+            if (buscarUsuario(document.getElementById("email").value) != undefined) { // si el usuario existe
+                // alerta mail ya registrado
+                const correo = document.getElementById("emailWarning");
+                correo.innerText = "El mail ya está registrado";
+            } else {
+                // inserto usuario 
+                let user = {};
+                user.nombre = document.getElementById("nombre").value;
+                user.apellido = document.getElementById("apellido").value;
+                user.alias = document.getElementById("alias").value;
+                user.codigoPostal = document.getElementById("codigoPostal").value;
+                user.email = document.getElementById("email").value;
+                user.clave = document.getElementById("clave").value;
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+                // mostrar modal
+                $('#msjOK').modal({
+                    backdrop: 'static'
+                })
+            }
+        }
+    }
+
+    /* if (buscarUsuario(document.getElementById("email").value) != undefined) { // si el usuario existe
+        if (userActivo) {// si tiene un usuario activo
+            if (camposValidos()) {
+                userActivo.nombre = document.getElementById("nombre").value;
+                userActivo.apellido = document.getElementById("apellido").value;
+                userActivo.alias = document.getElementById("alias").value;
+                userActivo.codigoPostal = document.getElementById("codigoPostal").value;
+                userActivo.email = document.getElementById("email").value;
+                userActivo.clave = document.getElementById("clave").value;
+                users.forEach(e => {
+                    if (e.email == userActivo.email) {
+                        console.log("llegue")
+                        console.log(e.email)
+                        console.log(e.clave)
+                        localStorage.setItem("userActivo", JSON.stringify(userActivo));
+                        sessionStorage.removeItem("users");
+                    }
+                })
+            }
+        }
+        else {
+            const correo = document.getElementById("emailWarning");
+            correo.innerText = "El mail ya está registrado";
+        }
+    } else if (camposValidos()) { // sino si todos los valores son validos
         let user = {};
         user.nombre = document.getElementById("nombre").value;
         user.apellido = document.getElementById("apellido").value;
@@ -196,7 +278,7 @@ btnSingIn.addEventListener("click", e => {
         $('#msjOK').modal({
             backdrop: 'static'
         })
-    }
+    } */
 })
 
 function procesarLogIn(userActivo) {
@@ -208,8 +290,10 @@ function procesarLogIn(userActivo) {
         document.getElementById("alias").value = userActivo.alias;
         document.getElementById("codigoPostal").value = userActivo.codigoPostal;
         document.getElementById("email").value = userActivo.email;
-        document.getElementById("clave").value = userActivo.clave;
+        document.getElementById("email").disabled = true;
         document.getElementById("verifEmail").value = userActivo.email;
+        document.getElementById("verifEmail").disabled = true;
+        document.getElementById("clave").value = userActivo.clave;
         document.getElementById("verifClave").value = userActivo.clave;
         //fuerzo a poner esValido todo en true
         let keys = Object.keys(esValido);
@@ -247,3 +331,139 @@ function obtenerUsuarios() {
 }
 
 
+
+/* document.getElementById("nombre").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo.length < 3) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("nombreWarning").innerText = "Nombre muy corto.";
+        esValido["nombre"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("nombreWarning").innerHTML = "&nbsp;";
+        esValido["nombre"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("apellido").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo.length < 3) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("apellidoWarning").innerText = "Apellido muy corto.";
+        esValido["apellido"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("apellidoWarning").innerHTML = "&nbsp;";
+        esValido["apellido"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("alias").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo.length == 0) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("aliasWarning").innerText = "Alias muy corto.";
+        esValido["alias"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("aliasWarning").innerHTML = "&nbsp;";
+        esValido["alias"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("codigoPostal").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo.length < 4) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("codigoPostalWarning").innerText = "El codigo postal debe tener mínimo 4 digitos.";
+        esValido["codigoPostal"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("codigoPostalWarning").innerHTML = "&nbsp;";
+        esValido["codigoPostal"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("email").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (!campo.includes("@") || !campo.includes(".com")) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("emailWarning").innerText = "Email no válido";
+        esValido["email"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("emailWarning").innerHTML = "&nbsp;";
+        esValido["email"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("verifEmail").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo != document.getElementById("email").value) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("verifEmailWarning").innerText = "El email no corresponde con el anterior";
+        esValido["verifEmail"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("verifEmailWarning").innerHTML = "&nbsp;";
+        esValido["verifEmail"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("clave").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo.length < 6) {
+        document.getElementById("claveWarning").className = "warning";
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        esValido["clave"] = false;
+    }
+    else {
+        document.getElementById("claveWarning").className = "light";
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        esValido["clave"] = true;
+    }
+    //habilitarSignIn();
+});
+
+document.getElementById("verifClave").addEventListener('focusout', e => {
+    let campo = e.target.value;
+    if (campo != document.getElementById("clave").value) {
+        e.target.classList.add("alert-danger");
+        e.target.classList.add("border-danger");
+        document.getElementById("verifClaveWarning").innerText = "La contraseña no corresponde con la anterior";
+        esValido["verifClave"] = false;
+    }
+    else {
+        e.target.classList.remove("border-danger");
+        e.target.classList.remove("alert-danger");
+        document.getElementById("verifClaveWarning").innerHTML = "&nbsp;";
+        esValido["verifClave"] = true;
+    }
+    //habilitarSignIn();
+}); */

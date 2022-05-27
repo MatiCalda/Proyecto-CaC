@@ -20,7 +20,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light p-0 sticky-top">
-        <a class="navbar-brand pl-2" href="../index.html">
+        <a class="navbar-brand pl-2" href="../index.html" id="linkInicio">
             <i class="ri-sword-line d-inline-block " alt="logo"></i>
             TecnoTienda
         </a>
@@ -83,8 +83,26 @@
                     <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-light" id="cantCart"></span>
                 </a>
             </div>
-            <div class="navbar-nav pl-1">
-                <a href="pages/login.html" class="nav-item nav-link pr-4">Iniciar Sesion</a>
+            <div class="navbar-nav pl-1 d-none" id="btnNoLogged">
+                <a href="#a" class="nav-item nav-link pr-4" data-toggle="modal" data-target="#login">Iniciar Sesion</a>
+            </div>
+            <div class="navbar-nav pl-1 d-none" id="btnLogged">
+                <div class="nav-item dropdown">
+                    <a class="nav-link pr-4" href="#" id="servicesDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <div class="navbar-nav">
+                            <span class="align-middle" id="aliasUser"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="servicesDropdown">
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <a class="dropdown-item" href="pages/singin.html">Perfil</a>
+                                <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Sesion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -292,8 +310,9 @@
     <!-- Iclude jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/cart.js"></script>
     <script src="../js/elementosPagina.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/logIn.js"></script>
     <script src="../js/iconoCarrito.js"></script>
 </body>
 
