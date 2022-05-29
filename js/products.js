@@ -19,10 +19,14 @@ const componentes = document.getElementById("componentes");
 
 // Agregamos eventos a los links
 celulares.addEventListener("click", e => {
+    // Prevenimos que los links recarguen la pagina
     e.preventDefault();
+    // guardamos el valor dei id de categoria
     let valor = e.target.getAttribute("id");
+    // Filtramos el array
     productos = products.filter(p => p.categoria == valor);
-    obtenerCards(productos);
+    // Imprimimos las cards
+    imprimirCards(productos);
 });
 accesorios.addEventListener("click", e => {
     e.preventDefault();
