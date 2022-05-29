@@ -36,8 +36,8 @@ products.forEach(product => {
     img.src = "../img/Productos/"+product.img;
     
     const cardBody = document.createElement("div");
-    cardBody.className = "card-body";
-
+    cardBody.className = "card-body d-flex flex-column";
+   
     const h5 = document.createElement("h5");
     h5.className = "card-title";
     h5.innerText = product.nombre;
@@ -48,10 +48,14 @@ products.forEach(product => {
 
     const p2 = document.createElement("p");
     p2.className = "card-text";
-    p2.innerText = "$" + product.precio;
+    p2.innerText = "$ " + product.precio.toLocaleString("en");
+
+    const p3 = document.createElement("p");
+    p3.className = "d-none";
+    p3.innerText = `${product.id}`;
 
     const divRight = document.createElement("div");
-    divRight.className = "text-right"
+    divRight.className = "mt-auto text-right"
 
     const button = document.createElement("button");
     button.setAttribute("data-toggle", "modal");
@@ -67,8 +71,25 @@ products.forEach(product => {
     button2.setAttribute("data-id", product.id);
     button2.className = "btnAgregar text-decoration-none badge-pill badge-light py-1";
     button2.innerText = "Agregar al Carrito";
-    button2.addEventListener("click", agregarAlCarrito);
-
+    button2.addEventListener("click", e => { // agrega el producto al carrito
+        let idProduct = parseInt(e.target.getAttribute("data-id"));
+        products.forEach(producto => {
+            if (producto.id === idProduct) {
+                let prodCart = new ProductCart(producto, 1);
+                let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
+                if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
+                    cart.push(prodCart);
+                } else {
+                    itemCarrito.cantidad++;
+                }
+                const carritoString = JSON.stringify(cart);
+                console.log(carritoString);
+                localStorage.setItem("cart", carritoString);
+            }
+            actualizarIconoCarrito();
+        });
+    });
+    
     const icon = document.createElement("i");
     icon.className = "bi bi-cart-plus ri-xl"
 
@@ -83,39 +104,3 @@ products.forEach(product => {
     divRight2.append(button2);
     button2.append(icon);
 });
-
-
-function agregarAlCarrito(e) {
-    // agrega el producto al carrito
-    let idProduct = parseInt(e.target.getAttribute("data-id"));
-    products.forEach(producto => {
-        if (producto.id === idProduct) {
-            let prodCart = new ProductCart(producto, 1);
-
-            let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
-            if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
-                cart.push(prodCart);
-            } else {
-                itemCarrito.cantidad++;
-            }
-            console.log(cart)
-            guardarEnlocalStorage("cart", cart)
-        }
-    });
-}
-
-// Evento boton carrito
-const btnCarrito = document.getElementById("btncarrito");
-btnCarrito.addEventListener("click", botonCarrito);
-
-function botonCarrito() {
-    // funcion para guardar el array
-    // guardarEnlocalStorage
-    // Redirigiendo a carrito
-    window.location.href = "cart.html"
-
-}
-
-function guardarEnlocalStorage(clave, valor) {
-    localStorage.setItem(clave, JSON.stringify(valor));
-}

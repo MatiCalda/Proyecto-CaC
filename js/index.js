@@ -55,26 +55,50 @@ const products = [
     }
 ];
 
+class ProductCart {
+    constructor(producto, cantidad) {
+        this.product = producto;
+        this.cantidad = cantidad;
+    }
+};
+
+const cart = obtenerCarrito();
+
+function obtenerCarrito() {
+    let theCart = [];
+    if (localStorage.getItem('cart') == undefined) { // si no existe el carrito
+        localStorage.setItem("cart", JSON.stringify(theCart));
+    } else {
+        theCart = JSON.parse(localStorage.getItem("cart"));
+    }
+    return theCart;
+}
+
 // Convertimos el array de objetos en un formato tipo JSON
 const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
 localStorage.setItem("products", productosEnStorage);
 
-const btnAddCart = document.getElementsByClassName("btnAgregar");
-btnAddCart.addEventListener("click", e => { // agrega el producto al carrito
-    let idProduct = parseInt(e.target.getAttribute("data-id"));
-    products.forEach(producto => {
-        if (producto.id === idProduct) {
-            let prodCart = new ProductCart(producto, 1);
-            let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
-            if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
-                cart.push(prodCart);
-            } else {
-                itemCarrito.cantidad++;
+
+let botonesAgregar = document.querySelectorAll('.btnAgregar');
+botonesAgregar.forEach(boton=>{
+    boton.addEventListener('click', e =>{
+        let idProduct = parseInt(e.target.getAttribute("data-id"));
+        console.log("idProduct: " + idProduct);
+        products.forEach(producto => {
+            if (producto.id === idProduct) {
+                let prodCart = new ProductCart(producto, 1);
+                let itemCarrito = cart.find(item => { return item.product.id === idProduct; });
+                if (itemCarrito == undefined) {   // si no encontro el elemento en el carrito
+                    cart.push(prodCart);
+                } else {
+                    itemCarrito.cantidad++;
+                }
+                const carritoString = JSON.stringify(cart);
+                localStorage.setItem("cart", carritoString);
             }
-            const carritoString = JSON.stringify(cart);
-            console.log(carritoString);
-            localStorage.setItem("cart", carritoString);
-        }
-    });
-});
+        });
+        actualizarIconoCarrito();
+    
+    })
+}); 

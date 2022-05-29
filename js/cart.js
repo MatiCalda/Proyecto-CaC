@@ -1,5 +1,7 @@
 cart = JSON.parse(localStorage.getItem("cart"));
 
+
+
 function mostrarCarrito() {
     var total = 0;
     document.getElementById('carrito').innerHTML = '';
@@ -10,7 +12,7 @@ function mostrarCarrito() {
         let html = `
             <tr id="${pedido.product.id}">
                 <td>
-                    <img src="${pedido.product.img}" class="avatar img-circle img-thumbnail img-cart" alt="avatar">
+                    <img src="../img/productos/${pedido.product.img}" class="avatar img-circle img-thumbnail img-cart" alt="${pedido.product.nombre}">
                 </td>
                 <td class="align-middle">
                     ${pedido.product.nombre}
@@ -22,10 +24,10 @@ function mostrarCarrito() {
                     ${pedido.cantidad}
                 </td>
                 <td class="align-middle text-right">
-                    $&nbsp;${pedido.product.precio}
+                    $&nbsp;${pedido.product.precio.toLocaleString("en")}
                 </td>
                 <td class="align-middle text-right">
-                    $&nbsp;${subTotal}
+                    $&nbsp;${subTotal.toLocaleString("en")}
                 </td>
                 <td class="align-middle">
                     <a class="btnEliminar ri-delete-bin-2-line text-decoration-none ri-lg" data-id="${pedido.product.id}"></a>
@@ -63,6 +65,7 @@ function mostrarCarrito() {
 
 
             total -= precioProducto;
+            actualizarIconoCarrito();
             mostrarCarrito();
         })
     });
@@ -80,7 +83,7 @@ const borrarTodoCarrito = document.getElementById("btnBorrarTodo");
 borrarTodoCarrito.addEventListener("click", e => {
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
-
+    actualizarIconoCarrito();
     mostrarCarrito();
 })
 
@@ -99,7 +102,7 @@ function removeItemOnce(arr, value) {
 function actualizarTotal(totalCalculado) {
     let html = `
         <th scope="col">
-            $${totalCalculado}
+            $${totalCalculado.toLocaleString("en")}
         </th>
     `;
     document.getElementById('total').innerHTML = html;
