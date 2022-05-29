@@ -26,7 +26,7 @@ celulares.addEventListener("click", e => {
     // Filtramos el array
     productos = products.filter(p => p.categoria == valor);
     // Imprimimos las cards
-    imprimirCards(productos);
+    obtenerCards(productos);
 });
 accesorios.addEventListener("click", e => {
     e.preventDefault();
