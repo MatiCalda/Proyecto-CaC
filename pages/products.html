@@ -28,8 +28,8 @@
         </a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="../index.html" class="nav-item nav-link active">Inicio</a>
-                <a href="products.html" class="nav-item nav-link">Productos</a>
+                <a href="../index.html" class="nav-item nav-link">Inicio</a>
+                <a href="products.html" class="nav-item nav-link active">Productos</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +76,8 @@
                 </div>
             </form>
             <div class="navbar-nav">
-                <a href="cart.html" class="nav-item nav-link px-3">
+                <a href="cart.html" class="d-none" id="cartLocation"></a>
+                <a href="javascript:void(0)" class="nav-item nav-link px-3" id="goToCart">
                     <i class="ri-shopping-cart-line ri-2x"></i>
                     <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-light" id="cantCart"></span>
                 </a>

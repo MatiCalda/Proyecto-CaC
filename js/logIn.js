@@ -7,8 +7,17 @@ users = obtenerUsuarios();
 
 procesarLogIn(userActivo);
 
+const goToCart = document.getElementById("goToCart");
+goToCart.addEventListener("click", e => {
+    if (userActivo) {
+        window.location.href = document.getElementById("cartLocation").href;
+    } else {
+        $('#login').modal('show');
+    }
+})
+
 const btnCerrarSesion = document.getElementById("cerrarSesion");
-btnCerrarSesion.addEventListener("click", e=> {
+btnCerrarSesion.addEventListener("click", e => {
     userActivo = undefined;
     localStorage.removeItem("userActivo");
     window.location.href = document.getElementById("linkInicio").href;
@@ -83,7 +92,7 @@ function procesarLogIn(userActivo) {
         document.getElementById("aliasUser").innerText = userActivo.alias;
         document.getElementById("btnLogged").classList.remove('d-none');
         document.getElementById("btnNoLogged").classList.add('d-none');
-    }else{
+    } else {
         document.getElementById("btnLogged").classList.add('d-none');
         document.getElementById("btnNoLogged").classList.remove('d-none');
     }
