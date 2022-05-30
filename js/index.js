@@ -106,3 +106,25 @@ botonesAgregar.forEach(boton => {
 
     })
 }); 
+
+const celularesnav = document.getElementById("celularesnav");
+const accesoriosnav = document.getElementById("accesoriosnav");
+const pcnav = document.getElementById("pcnav");
+const notebooknav = document.getElementById("notebooknav");
+const componentesnav = document.getElementById("componentesnav");
+
+celularesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "celulares");
+});
+accesoriosnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "accesorios");
+});
+pcnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "pc");
+});
+notebooknav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "notebook");
+});
+componentesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "componentes");
+});

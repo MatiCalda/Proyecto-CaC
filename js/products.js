@@ -7,8 +7,17 @@ class ProductCart {
 
 const cart = obtenerCarrito();
 const products = obtenerProductos();
-console.log(products);
-obtenerCards(products);
+if (localStorage.getItem("categoria")) {
+    // Filtramos el array
+    productos = products.filter(p => p.categoria == localStorage.getItem("categoria"));
+    // Imprimimos las cards
+    obtenerCards(productos);
+    localStorage.setItem("categoria", "");
+} else {
+    obtenerCards(products);
+}
+
+
 
 // Enlazamos las categorias
 const celulares = document.getElementById("celulares");
@@ -73,7 +82,7 @@ function obtenerCards(productos) {
     // Enlazando el div contenedor
     const cards = document.getElementById("products");
     // Limpiando el contenedor
-    cards.innerHTML="";
+    cards.innerHTML = "";
     productos.forEach(product => {
         // Creacion de las etiquetas con sus clases(.className) y el contenido (.innerText)
         const card = document.createElement("div");
@@ -154,3 +163,27 @@ function obtenerCards(productos) {
     });
 }
 
+// Navbar
+// Enlazando los links del nav
+const celularesnav = document.getElementById("celularesnav");
+const accesoriosnav = document.getElementById("accesoriosnav");
+const pcnav = document.getElementById("pcnav");
+const notebooknav = document.getElementById("notebooknav");
+const componentesnav = document.getElementById("componentesnav");
+
+// Guardando la categoria a mostrar en productos.html
+celularesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "celulares");
+});
+accesoriosnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "accesorios");
+});
+pcnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "pc");
+});
+notebooknav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "notebook");
+});
+componentesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "componentes");
+});
