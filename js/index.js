@@ -6,7 +6,8 @@ const products = [
         precio: 12500,
         descripcion: "Pantalla Led Samsung Np-r420 14.0 Reg 40 Pines",
         stock: 10,
-        destacado: false
+        destacado: false,
+        categoria: "componentes"
     },
     {
         id: 2,
@@ -15,7 +16,8 @@ const products = [
         precio: 22999,
         descripcion: "Diseñada para quienes pasan muchas horas frente a la computadora. Disfrutá sin descuidar las zonas lumbar, dorsal y cervical.",
         stock: 20,
-        destacado: true
+        destacado: true,
+        categoria: "componentes"
     },
     {
         id: 3,
@@ -24,7 +26,8 @@ const products = [
         precio: 53999,
         descripcion: "Pc Completa Intel I5 + Monitor 19 Led +8gb +hd 1 Tb +kit",
         stock: 30,
-        destacado: false
+        destacado: false,
+        categoria: "pc"
     },
     {
         id: 4,
@@ -33,7 +36,8 @@ const products = [
         precio: 1932,
         descripcion: "Kit Xtrike Gamer de Mouse, Teclado, Mousepad y Auriculares",
         stock: 40,
-        destacado: true
+        destacado: true,
+        categoria: "componentes"
     },
     {
         id: 5,
@@ -42,7 +46,8 @@ const products = [
         precio: 68999,
         descripcion: "Pc Armada Intel Core I7 1 Tb 16gb De Ram Graficos Hd Nuevas",
         stock: 50,
-        destacado: true
+        destacado: true,
+        categoria: "pc"
     },
     {
         id: 6,
@@ -51,7 +56,8 @@ const products = [
         precio: 89900,
         descripcion: "Kit Pc, Monitor , Parlantes, Auriculares, Mouse y Teclado",
         stock: 90,
-        destacado: false
+        destacado: false,
+        categoria: "pc"
     }
 ];
 
@@ -75,14 +81,13 @@ function obtenerCarrito() {
 }
 
 // Convertimos el array de objetos en un formato tipo JSON
-const productosEnStorage = JSON.stringify(products);
 // Guardamos en el localstorage el array JSON convertido de productos
-localStorage.setItem("products", productosEnStorage);
+localStorage.setItem("products", JSON.stringify(products));
 
 
 let botonesAgregar = document.querySelectorAll('.btnAgregar');
-botonesAgregar.forEach(boton=>{
-    boton.addEventListener('click', e =>{
+botonesAgregar.forEach(boton => {
+    boton.addEventListener('click', e => {
         let idProduct = parseInt(e.target.getAttribute("data-id"));
         console.log("idProduct: " + idProduct);
         products.forEach(producto => {
@@ -94,11 +99,32 @@ botonesAgregar.forEach(boton=>{
                 } else {
                     itemCarrito.cantidad++;
                 }
-                const carritoString = JSON.stringify(cart);
-                localStorage.setItem("cart", carritoString);
+                localStorage.setItem("cart", JSON.stringify(cart));
             }
         });
         actualizarIconoCarrito();
-    
+
     })
 }); 
+
+const celularesnav = document.getElementById("celularesnav");
+const accesoriosnav = document.getElementById("accesoriosnav");
+const pcnav = document.getElementById("pcnav");
+const notebooknav = document.getElementById("notebooknav");
+const componentesnav = document.getElementById("componentesnav");
+
+celularesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "celulares");
+});
+accesoriosnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "accesorios");
+});
+pcnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "pc");
+});
+notebooknav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "notebook");
+});
+componentesnav.addEventListener("click", () => {
+    localStorage.setItem("categoria", "componentes");
+});
