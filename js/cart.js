@@ -1,5 +1,30 @@
 cart = JSON.parse(localStorage.getItem("cart"));
 
+const borrarTodoCarrito = document.getElementById("btnBorrarTodo");
+borrarTodoCarrito.addEventListener("click", e => {
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    actualizarIconoCarrito();
+    mostrarCarrito();
+})
+
+
+function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}
+
+function actualizarTotal(totalCalculado) {
+    let html = `
+        <th scope="col">
+            $${totalCalculado.toLocaleString("en")}
+        </th>
+    `;
+    document.getElementById('total').innerHTML = html;
+}
 
 
 function mostrarCarrito() {
@@ -71,39 +96,16 @@ function mostrarCarrito() {
     });
     const btnComprar = document.getElementById("btnComprar");
     if (cart.length == 0) {
+        borrarTodoCarrito.setAttribute("disabled", true);
         btnComprar.setAttribute("disabled", true);
     }else{
+        borrarTodoCarrito.removeAttribute("disabled");
         btnComprar.removeAttribute("disabled");
     }
 
 }
 mostrarCarrito();
 
-const borrarTodoCarrito = document.getElementById("btnBorrarTodo");
-borrarTodoCarrito.addEventListener("click", e => {
-    cart = [];
-    localStorage.setItem("cart", JSON.stringify(cart));
-    actualizarIconoCarrito();
-    mostrarCarrito();
-})
 
 
 
-
-
-function removeItemOnce(arr, value) {
-    var index = arr.indexOf(value);
-    if (index > -1) {
-        arr.splice(index, 1);
-    }
-    return arr;
-}
-
-function actualizarTotal(totalCalculado) {
-    let html = `
-        <th scope="col">
-            $${totalCalculado.toLocaleString("en")}
-        </th>
-    `;
-    document.getElementById('total').innerHTML = html;
-}

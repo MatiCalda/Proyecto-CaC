@@ -1,14 +1,24 @@
 // LogIn
 let users = [];
 let userActivo;
+let goToCart = false;
 
 userActivo = obtenerUsuarioActivo();
 users = obtenerUsuarios();
 
 procesarLogIn(userActivo);
 
+document.getElementById("goToCart").addEventListener("click", e => {
+    if (userActivo) {
+        window.location.href = document.getElementById("cartLocation").href;
+    } else {
+        $('#login').modal('show');
+        goToCart = true;
+    }
+})
+
 const btnCerrarSesion = document.getElementById("cerrarSesion");
-btnCerrarSesion.addEventListener("click", e=> {
+btnCerrarSesion.addEventListener("click", e => {
     userActivo = undefined;
     localStorage.removeItem("userActivo");
     window.location.href = document.getElementById("linkInicio").href;
@@ -36,6 +46,9 @@ btnLogIn.addEventListener("click", e => {
         `
         $('#login').modal('hide');
         procesarLogIn(userActivo);
+        if (goToCart) {
+            window.location.href = document.getElementById("cartLocation").href;
+        }
     } else {            //si el ingreso es erroneo
         limpiarModal();
         let html = document.getElementById("msjEstado");
@@ -83,7 +96,7 @@ function procesarLogIn(userActivo) {
         document.getElementById("aliasUser").innerText = userActivo.alias;
         document.getElementById("btnLogged").classList.remove('d-none');
         document.getElementById("btnNoLogged").classList.add('d-none');
-    }else{
+    } else {
         document.getElementById("btnLogged").classList.add('d-none');
         document.getElementById("btnNoLogged").classList.remove('d-none');
     }

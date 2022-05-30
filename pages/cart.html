@@ -30,7 +30,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="../index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="../index.html" class="nav-item nav-link">Inicio</a>
                 <a href="products.html" class="nav-item nav-link">Productos</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
@@ -78,7 +78,8 @@
                 </div>
             </form>
             <div class="navbar-nav">
-                <a href="cart.html" class="nav-item nav-link px-3">
+                <a href="cart.html" class="d-none" id="cartLocation"></a>
+                <a href="javascript:void(0)" class="nav-item nav-link px-3" id="goToCart">
                     <i class="ri-shopping-cart-line ri-2x"></i>
                     <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-light" id="cantCart"></span>
                 </a>
@@ -97,7 +98,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="servicesDropdown">
                         <div class="d-flex justify-content-center">
                             <div>
-                                <a class="dropdown-item" href="pages/singin.html">Perfil</a>
+                                <a class="dropdown-item" href="singin.html">Perfil</a>
                                 <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Sesion</a>
                             </div>
                         </div>
@@ -106,6 +107,74 @@
             </div>
         </div>
     </nav>
+
+        <!-- modal login -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <div id="msjEstado">
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeLogIn">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+    
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-title text-center">
+                            <h4>Ingreso</h4>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Ingrese su mail">
+                                    <div id="emailWarning"></div>
+                                    <!-- <small class="warning" id="emailWarning">&nbsp;</small> -->
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password"
+                                        placeholder="Ingrese su contraseña">
+                                    <div id="passWarning"></div>
+                                    <!-- <small class="warning" id="passWarning">&nbsp;</small> -->
+                                </div>
+                                <button type="button" class="btn btn-info btn-block btn-round"
+                                    id="btnLogIn">Ingresar</button>
+                            </form>
+    
+                            <div class="text-center text-muted delimiter">o ingrese con una red social</div>
+                            <div class="d-flex justify-content-center social-buttons">
+                                <div class="px-1">
+                                    <button type="button" class="btn btn-secondary btn-circle" data-toggle="tooltip"
+                                        data-placement="top" title="Twitter">
+                                        <i class="bi bi-twitter"></i>
+                                    </button>
+                                </div>
+                                <div class="px-1">
+                                    <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                        data-placement="top" title="Facebook">
+                                        <i class="bi bi-facebook"></i>
+                                    </button>
+                                </div>
+                                <div class="px-1">
+                                    <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                        data-placement="top" title="Linkedin">
+                                        <i class="bi bi-linkedin"></i>
+                                    </button>
+                                </div>
+                                </di>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <div class="signup-section">Aun no tienes cuenta? <a href="singin.html" class="text-info">
+                                Registrar</a>.
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <!-- cierre modal login -->
 
     
 
