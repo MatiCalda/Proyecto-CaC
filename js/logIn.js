@@ -1,18 +1,19 @@
 // LogIn
 let users = [];
 let userActivo;
+let goToCart = false;
 
 userActivo = obtenerUsuarioActivo();
 users = obtenerUsuarios();
 
 procesarLogIn(userActivo);
 
-const goToCart = document.getElementById("goToCart");
-goToCart.addEventListener("click", e => {
+document.getElementById("goToCart").addEventListener("click", e => {
     if (userActivo) {
         window.location.href = document.getElementById("cartLocation").href;
     } else {
         $('#login').modal('show');
+        goToCart = true;
     }
 })
 
@@ -45,6 +46,9 @@ btnLogIn.addEventListener("click", e => {
         `
         $('#login').modal('hide');
         procesarLogIn(userActivo);
+        if (goToCart) {
+            window.location.href = document.getElementById("cartLocation").href;
+        }
     } else {            //si el ingreso es erroneo
         limpiarModal();
         let html = document.getElementById("msjEstado");
