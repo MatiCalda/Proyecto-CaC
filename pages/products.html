@@ -28,7 +28,7 @@
         </a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="../index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="../index.html" class="nav-item nav-link">Inicio</a>
                 <a href="products.html" class="nav-item nav-link">Productos</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
@@ -38,32 +38,15 @@
                     <div class="dropdown-menu dropdown-menu" aria-labelledby="servicesDropdown">
                         <div class="d-md-flex ">
                             <div>
-                                <div class="dropdown-header">Categoria 1</div>
-                                <a class="dropdown-item" href="#">Subcategoria 1</a>
-                                <a class="dropdown-item" href="#">Subcategoria 2</a>
-                                <a class="dropdown-item" href="#">Subcategoria 3</a>
+                                <div class="dropdown-header">Celulares y telefonos</div>
+                                <a class="dropdown-item" href="products.html" id="celularesnav">Celulares</a>
+                                <a class="dropdown-item" href="products.html" id="accesoriosnav">Accesorios</a>
                             </div>
                             <div>
-                                <div class="dropdown-header">Categoria 2</div>
-                                <a class="dropdown-item" href="#">Subcategoria 1</a>
-                                <a class="dropdown-item" href="#">Subcategoria 2</a>
-                                <a class="dropdown-item" href="#">Subcategoria 3</a>
-                            </div>
-                            <div>
-                                <div class="dropdown-header">Categoria 3</div>
-                                <a class="dropdown-item" href="#">Subcategoria 1</a>
-                                <a class="dropdown-item" href="#">Subcategoria 2</a>
-                                <a class="dropdown-item" href="#">Subcategoria 3</a>
-                            </div>
-                            <div>
-                                <div class="dropdown-header">Categoria 4</div>
-                                <a class="dropdown-item" href="#">Subcategoria 1</a>
-                                <a class="dropdown-item" href="#">Subcategoria 2</a>
-                                <a class="dropdown-item" href="#">Subcategoria 3</a>
-                                <a class="dropdown-item" href="#">Subcategoria 4</a>
-                                <a class="dropdown-item" href="#">Subcategoria 5</a>
-                                <a class="dropdown-item" href="#">Subcategoria 6</a>
-                                <a class="dropdown-item" href="#">Subcategoria 7</a>
+                                <div class="dropdown-header">Computacion</div>
+                                <a class="dropdown-item" href="products.html" id="pcnav">PC</a>
+                                <a class="dropdown-item" href="products.html" id="notebooknav">Notebook</a>
+                                <a class="dropdown-item" href="products.html" id="componentesnav">Componentes de PC</a>
                             </div>
                         </div>
                     </div>
@@ -180,38 +163,31 @@
 
         <!-- Sidebar-->
         <div class="border-end text-center text-light col-2" id="sidebar">
-            <div class="sidebar-heading">Categorias</div>
+            <div class="sidebar-heading"></div>
             <div class="list-group list-group-flush">
-                <a href="">
+                
                     <h6>Celulares</h6>
-                </a>
-                <a href="">
-                    <h6>PC de escritorio</h6>
-                </a>
-                <a href="">
-                    <h6>Notebooks</h6>
-                </a>
+                    <a href="" id="celulares">Celulares</a>
+                    <a href="" id="accesorios">Accesorios</a>
+                    <hr>
+                    <h6>Computacion</h6>
+                    <a href="" id="pc">Pc</a>
+                    <a href="" id="notebook">Notebook</a>
+                    <a href="" id="componentes">Componentes</a>
+                
             </div>
+            <hr>
             <div class="list-group list-group-flush">
-                <h6>Precio</h6>
-                <a href="#">Desde 500 pesos</a>
-                <a href="#">Desde 1000 pesos</a>
-
                 <h6>Marca</h6>
                 <a href="#">Lenovo</a>
                 <a href="#">HP</a>
                 <a href="#">Samsung</a>
-                <h6>Condicion</h6>
-                <a href="#">Nuevo</a>
-                <a href="#">Usado</a>
             </div>
         </div>
 
         <div class="container row row-cols-3" id="products">
-
         </div>
     </main>
-    <!--TODO Footer -->
     <div id="footer">
         <!-- Footer creado en js en elementosPagina.js -->
     </div>
