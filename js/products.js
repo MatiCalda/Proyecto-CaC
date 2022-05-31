@@ -90,7 +90,7 @@ function obtenerCards(productos) {
 
         const img = document.createElement("img");
         img.className = "card-img-top";
-        img.src = "../img/Productos/" + product.img;
+        img.src = "../img/productos/" + product.img;
 
         const cardBody = document.createElement("div");
         cardBody.className = "card-body d-flex flex-column";
